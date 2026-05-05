@@ -11,7 +11,6 @@ body {
     font-family: Arial, sans-serif;
     background: #f5f5f5;
     color: #333;
-    overflow-x: hidden;
 }
 
 /* =========================
@@ -116,7 +115,8 @@ CATÁLOGO
 #catalogo {
     display: grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+    repeat(3, 1fr);
 
     gap: 30px;
 
@@ -126,17 +126,17 @@ CATÁLOGO
 }
 
 /* =========================
-CARD
+CARD PADRONIZADO
 ========================= */
 .produto-card {
-    background: #fff;
+    background: white;
 
     border-radius: 24px;
 
     overflow: hidden;
 
     box-shadow:
-    0 8px 24px rgba(0,0,0,0.06);
+    0 6px 18px rgba(0,0,0,0.06);
 
     transition: 0.3s ease;
 
@@ -144,13 +144,15 @@ CARD
     flex-direction: column;
 
     height: 100%;
+
+    min-height: 650px;
 }
 
 .produto-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
 
     box-shadow:
-    0 14px 32px rgba(0,0,0,0.10);
+    0 14px 30px rgba(0,0,0,0.10);
 }
 
 /* =========================
@@ -159,17 +161,19 @@ CARD
 .img-container {
     width: 100%;
 
-    height: 320px;
-
-    overflow: hidden;
+    height: 340px;
 
     background: #f5f5f5;
 
-    flex-shrink: 0;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* =========================
-IMAGEM
+IMAGEM PADRONIZADA
 ========================= */
 .img-container img {
     width: 100%;
@@ -182,7 +186,7 @@ IMAGEM
 }
 
 /* =========================
-INFO CARD
+INFO
 ========================= */
 .info {
     flex: 1;
@@ -199,39 +203,24 @@ INFO CARD
     padding: 24px;
 }
 
-/* =========================
-TÍTULO PRODUTO
-========================= */
 .info h3 {
-    font-size: 18px;
+    font-size: 20px;
 
     font-weight: 700;
 
-    color: #222;
-
     margin-bottom: 10px;
 
-    min-height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #222;
 }
 
-/* =========================
-TAMANHO
-========================= */
 .tamanho {
-    font-size: 16px;
+    font-size: 17px;
 
     color: #777;
 
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
-/* =========================
-PREÇO
-========================= */
 .preco {
     font-size: 22px;
 
@@ -243,7 +232,7 @@ PREÇO
 }
 
 /* =========================
-BOTÃO COMPRAR
+BOTÃO
 ========================= */
 .btn-comprar {
     width: 100%;
@@ -362,12 +351,8 @@ HEADER CARRINHO
 }
 
 /* =========================
-LISTA CARRINHO
+ITEM CARRINHO
 ========================= */
-#lista-carrinho {
-    list-style: none;
-}
-
 .item-carrinho {
     display: flex;
     justify-content: space-between;
@@ -486,13 +471,9 @@ RESPONSIVO
     #catalogo {
         grid-template-columns: 1fr;
 
-        gap: 24px;
-
         padding: 18px;
-    }
 
-    .topo {
-        padding: 16px;
+        gap: 24px;
     }
 
     .logo-container img {
@@ -500,10 +481,11 @@ RESPONSIVO
     }
 
     .centro h1 {
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .produto-card {
+        min-height: auto;
         border-radius: 22px;
     }
 
@@ -513,7 +495,6 @@ RESPONSIVO
 
     .img-container img {
         height: auto;
-
         object-fit: contain;
     }
 
@@ -527,10 +508,6 @@ RESPONSIVO
 
     .preco {
         font-size: 24px;
-    }
-
-    .btn-comprar {
-        max-width: 100%;
     }
 
 }
