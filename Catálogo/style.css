@@ -8,137 +8,279 @@ RESET
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f6f4f1;
+    color: #2d2d2d;
 }
 
 /* =========================
-HEADER
+HEADER PREMIUM
 ========================= */
 .topo {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #ffffff;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 22px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+
+    padding: 16px 28px;
+
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
 .logo-container img {
-    height: 45px;
+    height: 52px;
     object-fit: contain;
 }
 
 .centro h1 {
-    font-size: 16px;
-    color: #6b4c3b;
+    font-size: 20px;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    color: #6f4b3e;
 }
 
 /* =========================
-BOTÃO CARRINHO
+BOTÃO CARRINHO PREMIUM
 ========================= */
 .btn-carrinho {
-    background: #2e7d32;
+    background: linear-gradient(135deg, #2e7d32, #43a047);
+
     border: none;
-    border-radius: 30px;
-    padding: 10px 16px;
+    border-radius: 999px;
+
+    width: 54px;
+    height: 54px;
+
     color: white;
-    cursor: pointer;
     font-weight: bold;
-    transition: 0.2s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    font-size: 16px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+
+    box-shadow:
+    0 8px 20px rgba(46,125,50,0.28);
 }
 
+/* HOVER */
 .btn-carrinho:hover {
-    transform: scale(1.03);
+    transform: translateY(-3px) scale(1.06);
+
+    box-shadow:
+    0 12px 28px rgba(46,125,50,0.38);
+
+    background: linear-gradient(
+        135deg,
+        #388e3c,
+        #4caf50
+    );
+}
+
+/* CLICK */
+.btn-carrinho:active {
+    transform: scale(0.96);
+}
+
+/* CONTADOR */
+#contador {
+    font-size: 15px;
+    font-weight: 700;
 }
 
 /* =========================
-GRID CATÁLOGO
+CATÁLOGO PREMIUM
 ========================= */
 #catalogo {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding: 24px;
+
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+    gap: 34px;
+
+    padding: 34px;
+
+    align-items: start;
 }
 
 /* =========================
-CARD
+CARD PREMIUM
 ========================= */
 #catalogo > div {
     background: white;
-    border-radius: 20px;
+
+    border-radius: 28px;
+
     overflow: hidden;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
-    transition: 0.2s;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+
+    transition: 0.3s ease;
+
     display: flex;
     flex-direction: column;
+
+    position: relative;
 }
 
 #catalogo > div:hover {
-    transform: translateY(-4px);
+    transform: translateY(-8px);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,0.10);
 }
 
 /* =========================
-IMAGEM PADRONIZADA
+IMAGEM SEM CORTAR
 ========================= */
 #catalogo img {
     width: 100%;
+
     height: 320px;
-    object-fit: contain; /* NÃO corta */
-    background: #f5f5f5;
-    padding: 10px;
+
+    object-fit: contain;
+
+    background: #faf8f6;
+
+    padding: 14px;
+
     display: block;
 }
 
 /* =========================
-TEXTOS
+CONTEÚDO CARD
 ========================= */
 #catalogo h3 {
-    font-size: 20px;
-    margin: 16px 18px 8px;
-    color: #222;
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #2d2d2d;
+
+    margin: 24px 24px 8px;
 }
 
 #catalogo p {
-    margin: 0 18px;
-    color: #777;
-    font-size: 15px;
+    margin: 0 24px;
+
+    font-size: 17px;
+
+    color: #7b7b7b;
+
+    line-height: 1.5;
 }
 
 #catalogo strong {
     display: block;
-    margin: 14px 18px;
+
+    margin: 18px 24px;
+
+    font-size: 34px;
+
     color: #2e7d32;
-    font-size: 20px;
-    font-weight: bold;
+
+    font-weight: 800;
 }
 
 /* =========================
-BOTÃO PRODUTO
+BOTÃO PREMIUM
 ========================= */
 #catalogo button {
-    margin: auto 18px 20px;
-    width: calc(100% - 36px);
-    padding: 14px;
+    margin: auto 24px 24px;
+
+    width: calc(100% - 48px);
+
+    padding: 16px;
+
     border: none;
-    border-radius: 14px;
-    background: #8a5a44;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #8a5a44,
+        #6f4633
+    );
+
     color: white;
-    font-size: 15px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
     cursor: pointer;
-    transition: 0.2s;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
+/* HOVER PREMIUM */
 #catalogo button:hover {
-    background: #744734;
+    transform: translateY(-4px);
+
+    background: linear-gradient(
+        135deg,
+        #9b654b,
+        #7a4b35
+    );
+
+    box-shadow:
+    0 12px 26px rgba(111,70,51,0.22);
+}
+
+/* CLICK */
+#catalogo button:active {
+    transform: scale(0.97);
+}
+
+/* BRILHO PASSANDO */
+#catalogo button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.28),
+        transparent
+    );
+
+    transition: 0.7s;
+}
+
+#catalogo button:hover::before {
+    left: 120%;
 }
 
 /* =========================
@@ -147,11 +289,16 @@ OVERLAY
 #overlay {
     position: fixed;
     inset: 0;
+
     background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(4px);
+
+    backdrop-filter: blur(6px);
+
     opacity: 0;
     pointer-events: none;
+
     transition: 0.3s;
+
     z-index: 1500;
 }
 
@@ -161,20 +308,29 @@ OVERLAY
 }
 
 /* =========================
-CARRINHO
+CARRINHO PREMIUM
 ========================= */
 .carrinho-lateral {
     position: fixed;
+
     top: 0;
     right: -100%;
-    width: 85%;
-    max-width: 400px;
-    height: 100%;
+
+    width: 90%;
+    max-width: 420px;
+
+    height: 100vh;
+
     background: white;
+
     z-index: 2000;
-    transition: 0.4s;
-    padding: 20px;
-    box-shadow: -10px 0 25px rgba(0,0,0,0.1);
+
+    transition: 0.4s ease;
+
+    padding: 26px;
+
+    box-shadow:
+    -10px 0 40px rgba(0,0,0,0.12);
 }
 
 .carrinho-lateral.ativo {
@@ -185,100 +341,237 @@ CARRINHO
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
+}
+
+.header-carrinho h3 {
+    font-size: 24px;
+    color: #333;
 }
 
 .btn-fechar {
     border: none;
     background: none;
-    font-size: 20px;
+
+    font-size: 24px;
+
     cursor: pointer;
 }
 
 .total-container {
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 26px;
+
+    font-size: 22px;
+
     font-weight: bold;
 }
 
 .btn-finalizar {
     width: 100%;
-    margin-top: 18px;
-    padding: 14px;
-    background: #2e7d32;
+
+    margin-top: 20px;
+
+    padding: 16px;
+
     border: none;
-    border-radius: 12px;
+
+    border-radius: 16px;
+
+    background: linear-gradient(
+        135deg,
+        #2e7d32,
+        #388e3c
+    );
+
     color: white;
-    font-size: 15px;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
     cursor: pointer;
 }
 
 /* =========================
-RODAPÉ
+ANIMAÇÃO ADICIONAR
+========================= */
+.btn-adicionado {
+    animation: pulseAdd 0.5s ease;
+}
+
+@keyframes pulseAdd {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* =========================
+ANIMAÇÃO CONTADOR
+========================= */
+.contador-animado {
+    animation: bounceCart 0.45s ease;
+}
+
+@keyframes bounceCart {
+
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(1.35);
+    }
+
+    60% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+/* =========================
+TOAST
+========================= */
+.toast {
+    position: fixed;
+
+    bottom: 28px;
+    left: 50%;
+
+    transform:
+    translateX(-50%)
+    translateY(30px);
+
+    background: rgba(30,30,30,0.92);
+
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+
+    transition: 0.35s ease;
+
+    z-index: 9999;
+}
+
+.toast.mostrar {
+    opacity: 1;
+
+    transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/* =========================
+RODAPÉ PREMIUM
 ========================= */
 .rodape {
-    margin-top: 50px;
-    padding: 35px 20px;
-    background: #7a4b35;
+    margin-top: 70px;
+
+    padding: 50px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #7a4b35,
+        #5f3828
+    );
+
     color: white;
+
     text-align: center;
 }
 
 .slogan {
     display: block;
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 10px;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
 }
 
 .creditos {
     font-size: 15px;
+
+    opacity: 0.95;
 }
 
 .creditos strong {
-    color: #ffd8c2;
+    color: #ffd9c5;
 }
 
 /* =========================
-MOBILE
+MOBILE PREMIUM
 ========================= */
 @media (max-width: 768px) {
 
+    .topo {
+        padding: 14px 16px;
+    }
+
+    .logo-container img {
+        height: 42px;
+    }
+
+    .centro h1 {
+        font-size: 15px;
+
+        text-align: center;
+    }
+
     #catalogo {
         grid-template-columns: 1fr;
-        padding: 16px;
+
+        gap: 24px;
+
+        padding: 18px;
+    }
+
+    #catalogo > div {
+        border-radius: 24px;
     }
 
     #catalogo img {
         height: auto;
-        max-height: none;
+
         object-fit: contain;
+
         padding: 0;
     }
 
-    .topo {
-        padding: 12px 14px;
-    }
-
-    .logo-container img {
-        height: 38px;
-    }
-
-    .centro h1 {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .btn-carrinho {
-        padding: 10px 14px;
-    }
-
     #catalogo h3 {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     #catalogo strong {
-        font-size: 18px;
+        font-size: 30px;
+    }
+
+    #catalogo button {
+        padding: 15px;
     }
 
 }
