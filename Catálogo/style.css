@@ -9,7 +9,7 @@ RESET
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background: #f5f5f5;
     color: #333;
 }
 
@@ -24,7 +24,7 @@ HEADER
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 12px 20px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
@@ -35,11 +35,10 @@ HEADER
 .centro h1 {
     font-size: 16px;
     color: #6b4c3b;
-    text-align: center;
 }
 
 /* =========================
-BOTÃO CARRINHO
+CARRINHO
 ========================= */
 .btn-carrinho {
     background: #2e7d32;
@@ -58,69 +57,68 @@ BOTÃO CARRINHO
 }
 
 /* =========================
-CATÁLOGO GRID
+GRID
 ========================= */
 #catalogo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
     gap: 20px;
     padding: 20px;
     justify-items: center;
 }
 
 /* =========================
-CARD PRODUTO
+CARD
 ========================= */
 .produto-card {
     width: 100%;
-    max-width: 400px;
-    background: #fff;
+    max-width: 420px;
+    background: white;
     border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
 }
 
 /* =========================
-IMAGEM (NÃO CORTA)
+IMAGEM (SOLUÇÃO DEFINITIVA)
 ========================= */
 .produto-imagem {
     width: 100%;
-    height: 250px;
-    background: #f2f2f2;
+    aspect-ratio: 4 / 3; /* mantém padrão */
+    background: #f3f3f3;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    overflow: hidden;
 }
 
+/* ESSA PARTE RESOLVE TUDO */
 .produto-imagem img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* NÃO CORTA */
 }
 
 /* =========================
-INFO PRODUTO
+INFO
 ========================= */
 .produto-info {
-    padding: 18px;
+    padding: 20px;
     text-align: center;
 }
 
 .produto-info h3 {
-    font-size: 18px;
-    margin-bottom: 6px;
+    font-size: 20px;
 }
 
 .produto-info span {
-    font-size: 14px;
     color: #777;
 }
 
 .preco {
     color: #2e7d32;
+    font-size: 22px;
     font-weight: bold;
-    font-size: 20px;
     margin: 10px 0;
 }
 
@@ -130,9 +128,9 @@ BOTÃO
 .btn-add {
     width: 100%;
     background: #7a4b35;
-    color: #fff;
+    color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     padding: 12px;
     cursor: pointer;
 }
@@ -164,7 +162,7 @@ CARRINHO
     width: 85%;
     max-width: 400px;
     height: 100%;
-    background: #fff;
+    background: white;
     z-index: 2000;
     transition: 0.4s;
     padding: 20px;
@@ -183,10 +181,6 @@ RODAPÉ
     background: #7a4b35;
     color: white;
     text-align: center;
-}
-
-.creditos strong {
-    font-weight: bold;
 }
 
 /* =========================
