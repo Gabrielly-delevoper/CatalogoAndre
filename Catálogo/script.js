@@ -38,7 +38,7 @@ const produtos = [
 ];
 
 /* =========================
-SALVAR CARRINHO
+SALVAR
 ========================= */
 function salvarCarrinho() {
 
@@ -50,7 +50,7 @@ function salvarCarrinho() {
 }
 
 /* =========================
-RENDERIZAR PRODUTOS
+RENDERIZAR
 ========================= */
 function renderizarProdutos() {
 
@@ -126,16 +126,16 @@ function adicionarAoCarrinho(id, botao) {
 
     atualizarCarrinho();
 
-    /* anima botão */
     botao.classList.add("btn-adicionado");
 
     setTimeout(() => {
 
-        botao.classList.remove("btn-adicionado");
+        botao.classList.remove(
+            "btn-adicionado"
+        );
 
     }, 500);
 
-    /* anima contador */
     const contador =
     document.getElementById("contador");
 
@@ -171,7 +171,6 @@ function atualizarCarrinho() {
     const contador =
     document.getElementById("contador");
 
-    /* contador */
     const totalItens =
     carrinho.reduce(
         (soma, item) => soma + item.qtd,
@@ -180,7 +179,6 @@ function atualizarCarrinho() {
 
     contador.innerText = totalItens;
 
-    /* lista */
     lista.innerHTML =
     carrinho.map(item => `
 
@@ -188,7 +186,9 @@ function atualizarCarrinho() {
 
             <div>
 
-                <strong>${item.nome}</strong>
+                <strong>
+                    ${item.nome}
+                </strong>
 
                 <p>
                     ${item.qtd}x
@@ -206,7 +206,6 @@ function atualizarCarrinho() {
 
     `).join("");
 
-    /* total */
     const total =
     carrinho.reduce(
         (soma, item) =>
@@ -220,7 +219,7 @@ function atualizarCarrinho() {
 }
 
 /* =========================
-TOGGLE CARRINHO
+ABRIR CARRINHO
 ========================= */
 function toggleCarrinho() {
 
