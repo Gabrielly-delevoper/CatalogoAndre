@@ -1,8 +1,11 @@
 const numeroWhats = "5521965134957";
 
-let carrinho = [];
+// carrega carrinho salvo
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-/* PRODUTOS */
+/* =========================
+   PRODUTOS (MANTÉM IGUAL)
+========================= */
 const produtos = [
     { id: 1, nome: "Essência Carioca", tamanho: "140x45cm", preco: 684.99, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Essência_Carioca_kvbiiq" },
     { id: 2, nome: "Alma do Rio", tamanho: "55x35cm", preco: 180.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Alma_do_Rio_eurfgj" },
@@ -12,12 +15,12 @@ const produtos = [
     { id: 6, nome: "Refúgio de Verão", tamanho: "55x35cm", preco: 180.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Refúgio_do_Verão_xblizc" },
     { id: 7, nome: "Lagoa & Corcovado", tamanho: "1.00x35cm", preco: 450.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Lagoa_Corcovado_rt0ho7" },
     { id: 8, nome: "Liberdade", tamanho: "55x35cm", preco: 340.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Liberdade_em_Movimento_aezcdq" },
-    { id: 10, nome: "Pão de Áçucar", tamanho: "35x27cm", preco: 105.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Pão_de_Áçucar_e7tf5h" },
-    { id: 11, nome: "Pão de Áçucar - Verde", tamanho: "35x27cm", preco: 105.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Pão_de_Áçucar_-_Verde_aii4pl" },
+    { id: 10, nome: "Pão de Açúcar", tamanho: "35x27cm", preco: 105.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Pão_de_Áçucar_e7tf5h" },
+    { id: 11, nome: "Pão de Açúcar - Verde", tamanho: "35x27cm", preco: 105.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Pão_de_Áçucar_-_Verde_aii4pl" },
     { id: 12, nome: "Pescador", tamanho: "55x35cm", preco: 175.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Travessia_jjnpbk" },
     { id: 13, nome: "Redentor ao Luar", tamanho: "55x35cm", preco: 175.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Redentor_ao_Luar_fh0mpn" },
     { id: 14, nome: "O Homem da maçã", tamanho: "55x35cm", preco: 199.99, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/O_Homem_da_Maça_idll9u" },
-    { id: 15, nome: "Dualidade Natural", tamanho: "55x35x7cm", preco: 470.00 , img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Dualidade_Natural_qezodx" },
+    { id: 15, nome: "Dualidade Natural", tamanho: "55x35x7cm", preco: 470.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Dualidade_Natural_qezodx" },
     { id: 16, nome: "Equilíbrio Azul", tamanho: "55x35cm", preco: 175.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Equilíbrio_Azul_wwyph3" },
     { id: 17, nome: "Folha Orgânica", tamanho: "1.00x35cm", preco: 330.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Folha_Orgânica_o8ekxx" },
     { id: 18, nome: "Jardim Rosé", tamanho: "55x35cm", preco: 510.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Jardim_Rosé_kn2eab" },
@@ -25,7 +28,16 @@ const produtos = [
     { id: 20, nome: "Essência Luar - Marrom", tamanho: "140x40cm", preco: 570.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Lunar_Essence_1_vlztpb" }
 ];
 
-/* RENDERIZAR */
+/* =========================
+   SALVAR CARRINHO
+========================= */
+function salvarCarrinho() {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+
+/* =========================
+   RENDERIZAR PRODUTOS
+========================= */
 function renderizarProdutos() {
     const container = document.getElementById("catalogo");
 
@@ -38,7 +50,8 @@ function renderizarProdutos() {
                 <h3>${produto.nome}</h3>
                 <p class="tamanho">Tamanho: ${produto.tamanho}</p>
                 <p class="preco">R$ ${produto.preco.toFixed(2)}</p>
-                <button class="btn-comprar" onclick="adicionar(${produto.id})">
+
+                <button class="btn-comprar" onclick="adicionar(${produto.id}, this)">
                     Adicionar ao Carrinho
                 </button>
             </div>
@@ -46,8 +59,11 @@ function renderizarProdutos() {
     `).join("");
 }
 
-/* ADICIONAR (UX MELHORADO) */
-function adicionar(id) {
+/* =========================
+   ADICIONAR PRODUTO
+========================= */
+function adicionar(id, botao) {
+
     const produto = produtos.find(p => p.id === id);
     const existente = carrinho.find(item => item.id === id);
 
@@ -57,14 +73,21 @@ function adicionar(id) {
         carrinho.push({ ...produto, qtd: 1 });
     }
 
+    salvarCarrinho();
     atualizarCarrinho();
 
-    // NÃO abre mais automaticamente
+    // animação botão
+    botao.classList.add("animando");
+    setTimeout(() => botao.classList.remove("animando"), 300);
+
     mostrarToast("Adicionado ao carrinho 🛒");
 }
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
 function mostrarToast(texto) {
+
     const toast = document.createElement("div");
     toast.className = "toast";
     toast.innerText = texto;
@@ -79,7 +102,9 @@ function mostrarToast(texto) {
     }, 2000);
 }
 
-/* ATUALIZAR */
+/* =========================
+   ATUALIZAR CARRINHO
+========================= */
 function atualizarCarrinho() {
 
     const lista = document.getElementById("lista-carrinho");
@@ -90,25 +115,30 @@ function atualizarCarrinho() {
 
     lista.innerHTML = carrinho.map(item => `
         <li class="item-carrinho">
-            <span>${item.nome} — ${item.qtd}x</span>
+            <span>${item.nome} (${item.qtd}x)</span>
             <span>R$ ${(item.preco * item.qtd).toFixed(2)}</span>
         </li>
     `).join("");
 
-    const total = carrinho.reduce(
-        (s, item) => s + (item.preco * item.qtd),
-        0
-    );
-
+    const total = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
     totalEl.innerText = total.toFixed(2);
 }
 
-/* CARRINHO */
+/* =========================
+   ABRIR/FECHAR CARRINHO
+========================= */
 function toggleCarrinho() {
-    document.getElementById("carrinho").classList.toggle("aberto");
+
+    const carrinhoEl = document.getElementById("carrinho");
+    const overlay = document.getElementById("overlay");
+
+    carrinhoEl.classList.toggle("aberto");
+    overlay.classList.toggle("ativo");
 }
 
-/* WHATSAPP (PROFISSIONAL) */
+/* =========================
+   WHATSAPP
+========================= */
 function enviarWhatsApp() {
 
     if (carrinho.length === 0) {
@@ -118,16 +148,13 @@ function enviarWhatsApp() {
 
     let msg = "✨ *Pedido - André Batista Decor*\n\n";
 
-    carrinho.forEach((item, index) => {
-        msg += `📌 ${index + 1}. ${item.nome}\n`;
+    carrinho.forEach((item, i) => {
+        msg += `📌 ${i + 1}. ${item.nome}\n`;
         msg += `📏 ${item.tamanho}\n`;
         msg += `💰 R$ ${(item.preco * item.qtd).toFixed(2)}\n\n`;
     });
 
-    const total = carrinho.reduce(
-        (s, item) => s + (item.preco * item.qtd),
-        0
-    );
+    const total = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
 
     msg += `🧾 *Total: R$ ${total.toFixed(2)}*\n\n`;
     msg += "Gostaria de finalizar o pedido 😊";
@@ -138,5 +165,8 @@ function enviarWhatsApp() {
     );
 }
 
-/* INICIAR */
+/* =========================
+   INICIAR
+========================= */
 renderizarProdutos();
+atualizarCarrinho();
