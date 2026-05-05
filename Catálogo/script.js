@@ -46,7 +46,7 @@ function renderizarProdutos() {
     `).join("");
 }
 
-/* ADICIONAR */
+/* ADICIONAR (UX MELHORADO) */
 function adicionar(id) {
     const produto = produtos.find(p => p.id === id);
     const existente = carrinho.find(item => item.id === id);
@@ -58,7 +58,25 @@ function adicionar(id) {
     }
 
     atualizarCarrinho();
-    abrirCarrinho();
+
+    // NÃO abre mais automaticamente
+    mostrarToast("Adicionado ao carrinho 🛒");
+}
+
+/* TOAST */
+function mostrarToast(texto) {
+    const toast = document.createElement("div");
+    toast.className = "toast";
+    toast.innerText = texto;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => toast.classList.add("mostrar"), 50);
+
+    setTimeout(() => {
+        toast.classList.remove("mostrar");
+        setTimeout(() => toast.remove(), 300);
+    }, 2000);
 }
 
 /* ATUALIZAR */
@@ -90,26 +108,20 @@ function toggleCarrinho() {
     document.getElementById("carrinho").classList.toggle("aberto");
 }
 
-function abrirCarrinho() {
-    document.getElementById("carrinho").classList.add("aberto");
-}
-
-/* WHATSAPP */
+/* WHATSAPP (PROFISSIONAL) */
 function enviarWhatsApp() {
 
     if (carrinho.length === 0) {
-        alert("O carrinho está vazio!");
+        alert("Seu carrinho está vazio 🛒");
         return;
     }
 
-    let msg = "🛒 *Olá André, gostaria de finalizar meu pedido:*\n\n";
+    let msg = "✨ *Pedido - André Batista Decor*\n\n";
 
     carrinho.forEach((item, index) => {
-        msg += `*${index + 1}. ${item.nome}* (${item.qtd})
-📐 Tamanho: ${item.tamanho}
-💲 Valor: R$ ${(item.preco * item.qtd).toFixed(2)}
-
-`;
+        msg += `📌 ${index + 1}. ${item.nome}\n`;
+        msg += `📏 ${item.tamanho}\n`;
+        msg += `💰 R$ ${(item.preco * item.qtd).toFixed(2)}\n\n`;
     });
 
     const total = carrinho.reduce(
@@ -117,12 +129,13 @@ function enviarWhatsApp() {
         0
     );
 
-    msg += `-----------------------
-💵 *TOTAL: R$ ${total.toFixed(2)}*
+    msg += `🧾 *Total: R$ ${total.toFixed(2)}*\n\n`;
+    msg += "Gostaria de finalizar o pedido 😊";
 
-Aguardo confirmação e dados para pagamento.`;
-
-    window.open(`https://wa.me/${numeroWhats}?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(
+        `https://wa.me/${numeroWhats}?text=${encodeURIComponent(msg)}`,
+        "_blank"
+    );
 }
 
 /* INICIAR */
