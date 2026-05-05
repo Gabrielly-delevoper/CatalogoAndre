@@ -5,10 +5,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
+    font-family: Arial, sans-serif;
     background: #f5f5f5;
 }
 
@@ -48,26 +48,9 @@ body {
     border-radius: 30px;
     border: none;
     cursor: pointer;
-
     background: linear-gradient(135deg, #2e7d32, #1b5e20);
     color: white;
-
     box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    transition: 0.3s;
-}
-
-.btn-carrinho:hover {
-    transform: scale(1.05);
-}
-
-.icon-cart {
-    width: 18px;
-    height: 18px;
-    fill: white;
-}
-
-#contador {
-    font-weight: bold;
 }
 
 /* =========================
@@ -83,55 +66,65 @@ body {
 /* =========================
    CARD PRODUTO
 ========================= */
-.produto {
+.produto-card {
     background: white;
     border-radius: 18px;
-    padding: 15px;
+    overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     transition: 0.3s;
 }
 
-.produto:hover {
+.produto-card:hover {
     transform: translateY(-5px);
 }
 
 /* =========================
-   IMAGEM PRODUTO
+   IMAGEM
 ========================= */
-.produto img {
+.img-container {
     width: 100%;
-    height: 200px;
+    height: 240px;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 12px;
 }
 
 /* =========================
-   TEXTO PRODUTO
+   INFO
 ========================= */
-.produto h3 {
-    margin-top: 10px;
-    font-size: 16px;
+.info {
+    padding: 15px;
+    text-align: center;
 }
 
-.produto p {
-    font-size: 14px;
+.info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.tamanho {
+    font-size: 13px;
     color: #777;
 }
 
-.produto strong {
-    display: block;
-    margin-top: 5px;
+.preco {
+    font-size: 20px;
     color: #2e7d32;
-    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
 }
 
 /* =========================
-   BOTÃO ADICIONAR
+   BOTÃO
 ========================= */
-.produto button {
-    margin-top: 12px;
-    padding: 10px;
+.btn-comprar {
+    margin-top: 10px;
+    padding: 12px;
     border: none;
     border-radius: 10px;
     background: #795548;
@@ -140,12 +133,12 @@ body {
     transition: 0.3s;
 }
 
-.produto button:hover {
+.btn-comprar:hover {
     background: #5d4037;
 }
 
 /* =========================
-   OVERLAY (BLUR)
+   OVERLAY
 ========================= */
 #overlay {
     position: fixed;
@@ -177,68 +170,10 @@ body {
     padding: 20px;
     transition: 0.3s;
     z-index: 2000;
-    border-radius: 20px 0 0 20px;
 }
 
-.carrinho-lateral.ativo {
+.carrinho-lateral.aberto {
     right: 0;
-}
-
-.header-carrinho {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.btn-fechar {
-    border: none;
-    background: none;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* =========================
-   TOTAL
-========================= */
-.total-container {
-    margin-top: 20px;
-    font-size: 18px;
-}
-
-/* =========================
-   FINALIZAR
-========================= */
-.btn-finalizar {
-    margin-top: 15px;
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #2e7d32;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* =========================
-   TOAST
-========================= */
-.toast {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: #333;
-    color: white;
-    padding: 14px 20px;
-    border-radius: 30px;
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 9999;
-}
-
-.toast.mostrar {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
 }
 
 /* =========================
@@ -252,34 +187,40 @@ body {
     padding: 25px;
 }
 
-.slogan {
-    font-style: italic;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.creditos {
-    font-size: 14px;
-    background: rgba(255,255,255,0.1);
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 8px;
-}
-
 /* =========================
-   MOBILE (1 COLUNA)
+   🔥 MOBILE PERFEITO
 ========================= */
 @media (max-width: 768px) {
+
     #catalogo {
-        grid-template-columns: 1fr; /* 🔥 1 produto por linha */
+        grid-template-columns: 1fr !important;
+        justify-items: center;
         padding: 15px;
     }
 
-    .produto img {
-        height: 220px;
+    .produto-card {
+        width: 100%;
+        max-width: 420px;
     }
 
-    .centro h1 {
-        font-size: 14px;
+    .img-container {
+        height: 300px;
+    }
+
+    .img-container img {
+        object-fit: cover;
+    }
+
+    .info h3 {
+        font-size: 18px;
+    }
+
+    .preco {
+        font-size: 22px;
+    }
+
+    .btn-comprar {
+        padding: 14px;
+        font-size: 16px;
     }
 }
