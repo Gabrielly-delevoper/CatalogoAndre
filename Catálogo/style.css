@@ -8,9 +8,9 @@ RESET
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f5f3f1;
-    color: #2d2d2d;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
 }
 
 /* =========================
@@ -39,7 +39,7 @@ HEADER
 LOGO
 ========================= */
 .logo-container img {
-    height: 82px;
+    height: 85px;
     object-fit: contain;
 }
 
@@ -48,11 +48,8 @@ TÍTULO
 ========================= */
 .centro h1 {
     font-size: 22px;
-
     color: #6f4b3e;
-
     font-weight: 700;
-
     letter-spacing: 1px;
 }
 
@@ -88,15 +85,11 @@ BOTÃO CARRINHO
 
 .btn-carrinho:hover {
     transform: translateY(-3px);
-
-    box-shadow:
-    0 16px 30px rgba(46,125,50,0.28);
 }
 
 .icon-cart {
     width: 22px;
     height: 22px;
-
     fill: white;
 }
 
@@ -123,41 +116,34 @@ CATÁLOGO
     display: grid;
 
     grid-template-columns:
-    repeat(auto-fit, minmax(360px, 1fr));
+    repeat(3, 1fr);
 
     gap: 30px;
 
     padding: 30px;
-
-    align-items: start;
 }
 
 /* =========================
 CARD
 ========================= */
 .produto-card {
-    background: #fff;
+    background: white;
 
-    border-radius: 28px;
+    border-radius: 24px;
 
     overflow: hidden;
 
     box-shadow:
-    0 8px 25px rgba(0,0,0,0.06);
+    0 6px 18px rgba(0,0,0,0.06);
 
     transition: 0.3s ease;
-
-    display: flex;
-    flex-direction: column;
-
-    height: auto;
 }
 
 .produto-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
 
     box-shadow:
-    0 16px 34px rgba(0,0,0,0.10);
+    0 14px 30px rgba(0,0,0,0.10);
 }
 
 /* =========================
@@ -165,23 +151,20 @@ IMAGEM
 ========================= */
 .img-container {
     width: 100%;
-
-    background: #f7f7f7;
 }
 
 .img-container img {
     width: 100%;
-
     height: auto;
 
     display: block;
 }
 
 /* =========================
-INFO CARD
+INFO
 ========================= */
 .info {
-    padding: 26px;
+    padding: 24px;
 
     display: flex;
     flex-direction: column;
@@ -192,46 +175,46 @@ INFO CARD
 }
 
 .info h3 {
-    font-size: 22px;
+    font-size: 20px;
 
     font-weight: 700;
 
-    color: #222;
-
     margin-bottom: 10px;
+
+    color: #222;
 }
 
 .tamanho {
-    font-size: 18px;
+    font-size: 17px;
 
     color: #777;
 
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .preco {
-    font-size: 28px;
+    font-size: 22px;
 
-    font-weight: 800;
+    font-weight: bold;
 
     color: #2e7d32;
 
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 }
 
 /* =========================
-BOTÃO COMPRAR
+BOTÃO
 ========================= */
 .btn-comprar {
     width: 100%;
 
-    max-width: 320px;
+    max-width: 280px;
 
-    padding: 16px;
+    padding: 15px;
 
     border: none;
 
-    border-radius: 16px;
+    border-radius: 14px;
 
     background: linear-gradient(
         135deg,
@@ -241,23 +224,20 @@ BOTÃO COMPRAR
 
     color: white;
 
-    font-size: 16px;
+    font-size: 15px;
 
     font-weight: 600;
 
     cursor: pointer;
 
     transition: 0.25s ease;
-
-    box-shadow:
-    0 8px 20px rgba(111,70,51,0.16);
 }
 
 .btn-comprar:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 
     box-shadow:
-    0 14px 28px rgba(111,70,51,0.22);
+    0 10px 20px rgba(111,70,51,0.20);
 }
 
 /* =========================
@@ -336,7 +316,7 @@ HEADER CARRINHO
     border: none;
     background: none;
 
-    font-size: 26px;
+    font-size: 24px;
 
     cursor: pointer;
 }
@@ -347,7 +327,6 @@ ITEM CARRINHO
 .item-carrinho {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
     gap: 12px;
 
@@ -358,17 +337,11 @@ ITEM CARRINHO
     border-bottom: 1px solid #ececec;
 }
 
-.item-carrinho strong {
-    display: block;
-
-    margin-bottom: 4px;
-}
-
 /* =========================
 TOTAL
 ========================= */
 .total-container {
-    margin-top: 26px;
+    margin-top: 24px;
 
     font-size: 22px;
 
@@ -402,53 +375,6 @@ BOTÃO FINALIZAR
     font-weight: 600;
 
     cursor: pointer;
-}
-
-/* =========================
-ANIMAÇÕES
-========================= */
-.btn-adicionado {
-    animation: pulseAdd 0.5s ease;
-}
-
-@keyframes pulseAdd {
-
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.06);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
-}
-
-.contador-animado {
-    animation: bounceCart 0.45s ease;
-}
-
-@keyframes bounceCart {
-
-    0% {
-        transform: scale(1);
-    }
-
-    30% {
-        transform: scale(1.35);
-    }
-
-    60% {
-        transform: scale(0.9);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
 }
 
 /* =========================
@@ -508,23 +434,18 @@ RODAPÉ
     text-align: center;
 }
 
-.slogan {
-    display: block;
-
-    font-size: 28px;
-
-    font-weight: 700;
-
-    margin-bottom: 12px;
-}
-
 /* =========================
-RESPONSIVO
+MOBILE
+1 CARD POR LINHA
 ========================= */
 @media (max-width: 768px) {
 
-    .topo {
-        padding: 14px 16px;
+    #catalogo {
+        grid-template-columns: 1fr;
+
+        padding: 18px;
+
+        gap: 24px;
     }
 
     .logo-container img {
@@ -533,24 +454,10 @@ RESPONSIVO
 
     .centro h1 {
         font-size: 17px;
-
-        text-align: center;
-    }
-
-    .btn-carrinho {
-        padding: 12px 16px;
-    }
-
-    #catalogo {
-        grid-template-columns: 1fr;
-
-        padding: 18px;
-
-        gap: 22px;
     }
 
     .produto-card {
-        border-radius: 24px;
+        border-radius: 22px;
     }
 
     .info {
@@ -558,19 +465,11 @@ RESPONSIVO
     }
 
     .info h3 {
-        font-size: 20px;
-    }
-
-    .tamanho {
-        font-size: 16px;
+        font-size: 19px;
     }
 
     .preco {
         font-size: 24px;
-    }
-
-    .btn-comprar {
-        width: 100%;
     }
 
 }
