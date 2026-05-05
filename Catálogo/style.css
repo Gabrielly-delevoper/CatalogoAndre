@@ -128,7 +128,7 @@ CATÁLOGO
 /* =========================
 CARD
 ========================= */
-.produto-card {
+.produto {
     background: #fff;
 
     border-radius: 24px;
@@ -146,7 +146,7 @@ CARD
     height: 100%;
 }
 
-.produto-card:hover {
+.produto:hover {
     transform: translateY(-6px);
 
     box-shadow:
@@ -154,69 +154,38 @@ CARD
 }
 
 /* =========================
-ÁREA DA IMAGEM
+IMAGEM
 ========================= */
-.img-container {
+.produto img {
     width: 100%;
 
     height: 320px;
 
-    background: #f5f5f5;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-
-    padding: 12px;
-}
-
-/* =========================
-IMAGEM
-========================= */
-.img-container img {
-    width: 100%;
-    height: 100%;
-
     object-fit: contain;
 
-    display: block;
-
     background: #f5f5f5;
+
+    padding: 12px;
+
+    display: block;
 }
 
 /* =========================
-INFO CARD
+TÍTULO
 ========================= */
-.info {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
-
-    padding: 26px 24px;
-
-    gap: 14px;
-}
-
-/* =========================
-TÍTULO PRODUTO
-========================= */
-.info h3 {
+.produto h3 {
     font-size: 18px;
 
     font-weight: 700;
 
     color: #222;
 
-    line-height: 1.3;
+    text-align: center;
 
-    min-height: 50px;
+    padding:
+    22px 20px 10px;
+
+    min-height: 70px;
 
     display: flex;
     align-items: center;
@@ -226,34 +195,43 @@ TÍTULO PRODUTO
 /* =========================
 TAMANHO
 ========================= */
-.tamanho {
+.produto p {
     font-size: 16px;
 
     color: #777;
+
+    text-align: center;
+
+    margin-bottom: 14px;
+
+    padding: 0 20px;
 }
 
 /* =========================
 PREÇO
 ========================= */
-.preco {
-    font-size: 22px;
+.produto strong {
+    display: block;
 
-    font-weight: bold;
+    text-align: center;
+
+    font-size: 22px;
 
     color: #2e7d32;
 
-    margin-top: 4px;
-
-    margin-bottom: 10px;
+    margin-bottom: 22px;
 }
 
 /* =========================
-BOTÃO COMPRAR
+BOTÃO
 ========================= */
-.btn-comprar {
-    width: 100%;
+.produto button {
+    width: calc(100% - 40px);
 
-    max-width: 280px;
+    margin:
+    auto
+    auto
+    24px;
 
     padding: 15px;
 
@@ -278,7 +256,7 @@ BOTÃO COMPRAR
     transition: 0.25s ease;
 }
 
-.btn-comprar:hover {
+.produto button:hover {
     transform: translateY(-2px);
 
     box-shadow:
@@ -508,34 +486,10 @@ RESPONSIVO
         font-size: 18px;
     }
 
-    .produto-card {
-        border-radius: 22px;
-    }
-
-    .img-container {
-        height: auto;
-    }
-
-    .img-container img {
+    .produto img {
         height: auto;
 
         object-fit: contain;
-    }
-
-    .info {
-        padding: 22px;
-    }
-
-    .info h3 {
-        font-size: 19px;
-    }
-
-    .preco {
-        font-size: 24px;
-    }
-
-    .btn-comprar {
-        max-width: 100%;
     }
 
 }
