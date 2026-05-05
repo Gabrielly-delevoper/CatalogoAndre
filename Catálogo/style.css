@@ -14,7 +14,7 @@ body {
 }
 
 /* =========================
-HEADER PREMIUM
+HEADER
 ========================= */
 .topo {
     position: sticky;
@@ -27,11 +27,9 @@ HEADER PREMIUM
 
     padding: 18px 28px;
 
-    background: rgba(255,255,255,0.94);
+    background: rgba(255,255,255,0.95);
 
     backdrop-filter: blur(10px);
-
-    border-bottom: 1px solid rgba(0,0,0,0.04);
 
     box-shadow:
     0 2px 12px rgba(0,0,0,0.05);
@@ -58,7 +56,7 @@ TÍTULO
 }
 
 /* =========================
-BOTÃO CARRINHO NOVO
+BOTÃO CARRINHO
 ========================= */
 .btn-carrinho {
     background: linear-gradient(
@@ -88,14 +86,14 @@ BOTÃO CARRINHO NOVO
 }
 
 .btn-carrinho:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 
     box-shadow:
     0 14px 28px rgba(46,125,50,0.30);
 }
 
 .btn-carrinho:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
 }
 
 .icone-carrinho {
@@ -108,8 +106,6 @@ BOTÃO CARRINHO NOVO
 }
 
 #contador {
-    background: rgba(255,255,255,0.22);
-
     min-width: 28px;
     height: 28px;
 
@@ -119,14 +115,14 @@ BOTÃO CARRINHO NOVO
 
     border-radius: 999px;
 
+    background: rgba(255,255,255,0.20);
+
     font-size: 13px;
     font-weight: bold;
-
-    backdrop-filter: blur(4px);
 }
 
 /* =========================
-GRID CATÁLOGO
+CATÁLOGO
 ========================= */
 #catalogo {
     display: grid;
@@ -137,14 +133,12 @@ GRID CATÁLOGO
     gap: 34px;
 
     padding: 34px;
-
-    align-items: start;
 }
 
 /* =========================
-CARD PREMIUM
+CARD
 ========================= */
-#catalogo > div {
+.produto-card {
     background: white;
 
     border-radius: 28px;
@@ -160,7 +154,7 @@ CARD PREMIUM
     flex-direction: column;
 }
 
-#catalogo > div:hover {
+.produto-card:hover {
     transform: translateY(-8px);
 
     box-shadow:
@@ -170,64 +164,58 @@ CARD PREMIUM
 /* =========================
 IMAGEM
 ========================= */
-#catalogo img {
+.img-container {
     width: 100%;
-
-    height: 320px;
-
-    object-fit: contain;
-
     background: #faf8f6;
+}
 
-    padding: 14px;
+.img-container img {
+    width: 100%;
+    height: auto;
 
     display: block;
 }
 
 /* =========================
-TEXTO CARD
+INFO
 ========================= */
-#catalogo h3 {
+.info {
+    padding: 24px;
+}
+
+.info h3 {
     font-size: 30px;
 
-    font-weight: 700;
+    margin-bottom: 10px;
 
     color: #2d2d2d;
-
-    margin: 24px 24px 8px;
 }
 
-#catalogo p {
-    margin: 0 24px;
-
+.tamanho {
     font-size: 17px;
 
-    color: #7b7b7b;
+    color: #777;
 
-    line-height: 1.5;
+    margin-bottom: 10px;
 }
 
-#catalogo strong {
-    display: block;
-
-    margin: 18px 24px;
-
+.preco {
     font-size: 34px;
+
+    font-weight: 800;
 
     color: #2e7d32;
 
-    font-weight: 800;
+    margin-bottom: 20px;
 }
 
 /* =========================
-BOTÃO ADICIONAR
+BOTÃO COMPRAR
 ========================= */
-#catalogo button {
-    margin: auto 24px 24px;
+.btn-comprar {
+    width: 100%;
 
-    width: calc(100% - 48px);
-
-    padding: 18px;
+    padding: 16px;
 
     border: none;
 
@@ -241,23 +229,19 @@ BOTÃO ADICIONAR
 
     color: white;
 
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
 
     cursor: pointer;
 
-    transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    transition: 0.25s ease;
 
     position: relative;
 
     overflow: hidden;
 }
 
-/* HOVER */
-#catalogo button:hover {
+.btn-comprar:hover {
     transform: translateY(-4px);
 
     background: linear-gradient(
@@ -270,35 +254,8 @@ BOTÃO ADICIONAR
     0 12px 26px rgba(111,70,51,0.24);
 }
 
-/* CLICK */
-#catalogo button:active {
+.btn-comprar:active {
     transform: scale(0.97);
-}
-
-/* BRILHO */
-#catalogo button::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 100%;
-    height: 100%;
-
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.28),
-        transparent
-    );
-
-    transition: 0.7s;
-}
-
-#catalogo button:hover::before {
-    left: 120%;
 }
 
 /* =========================
@@ -327,7 +284,7 @@ OVERLAY
 }
 
 /* =========================
-CARRINHO LATERAL
+CARRINHO
 ========================= */
 .carrinho-lateral {
     position: fixed;
@@ -352,7 +309,7 @@ CARRINHO LATERAL
     -10px 0 40px rgba(0,0,0,0.12);
 }
 
-.carrinho-lateral.ativo {
+.carrinho-lateral.aberto {
     right: 0;
 }
 
@@ -369,12 +326,8 @@ HEADER CARRINHO
 
 .header-carrinho h3 {
     font-size: 24px;
-    color: #333;
 }
 
-/* =========================
-BOTÃO FECHAR
-========================= */
 .btn-fechar {
     border: none;
     background: none;
@@ -382,6 +335,20 @@ BOTÃO FECHAR
     font-size: 24px;
 
     cursor: pointer;
+}
+
+/* =========================
+ITEM CARRINHO
+========================= */
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #eee;
 }
 
 /* =========================
@@ -396,7 +363,7 @@ TOTAL
 }
 
 /* =========================
-BOTÃO FINALIZAR
+FINALIZAR
 ========================= */
 .btn-finalizar {
     width: 100%;
@@ -425,53 +392,6 @@ BOTÃO FINALIZAR
 }
 
 /* =========================
-ANIMAÇÃO
-========================= */
-.btn-adicionado {
-    animation: pulseAdd 0.5s ease;
-}
-
-@keyframes pulseAdd {
-
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
-}
-
-.contador-animado {
-    animation: bounceCart 0.45s ease;
-}
-
-@keyframes bounceCart {
-
-    0% {
-        transform: scale(1);
-    }
-
-    30% {
-        transform: scale(1.35);
-    }
-
-    60% {
-        transform: scale(0.9);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
-}
-
-/* =========================
 TOAST
 ========================= */
 .toast {
@@ -493,9 +413,6 @@ TOAST
     border-radius: 999px;
 
     font-size: 14px;
-    font-weight: 500;
-
-    backdrop-filter: blur(10px);
 
     opacity: 0;
 
@@ -541,16 +458,6 @@ RODAPÉ
     margin-bottom: 12px;
 }
 
-.creditos {
-    font-size: 15px;
-
-    opacity: 0.95;
-}
-
-.creditos strong {
-    color: #ffd9c5;
-}
-
 /* =========================
 RESPONSIVO
 ========================= */
@@ -561,12 +468,11 @@ RESPONSIVO
     }
 
     .logo-container img {
-        height: 54px;
+        height: 56px;
     }
 
     .centro h1 {
         font-size: 16px;
-        text-align: center;
     }
 
     .texto-carrinho {
@@ -581,19 +487,11 @@ RESPONSIVO
         padding: 18px;
     }
 
-    #catalogo img {
-        height: auto;
-
-        object-fit: contain;
-
-        padding: 0;
-    }
-
-    #catalogo h3 {
+    .info h3 {
         font-size: 24px;
     }
 
-    #catalogo strong {
+    .preco {
         font-size: 30px;
     }
 
