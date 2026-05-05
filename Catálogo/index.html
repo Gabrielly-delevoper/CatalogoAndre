@@ -9,10 +9,14 @@
 </head>
 <body>
 
+    <!-- OVERLAY (blur do fundo) -->
+    <div id="overlay" onclick="toggleCarrinho()"></div>
+
     <header class="topo">
+
         <div class="esquerda">
             <div class="logo-container">
-              <img src="https://drive.google.com/thumbnail?id=1LVYmqsNlKuK6CI3Is2wZ33Rej7UtQe0H&sz=w1000">
+                <img src="https://drive.google.com/thumbnail?id=1LVYmqsNlKuK6CI3Is2wZ33Rej7UtQe0H&sz=w1000">
             </div>
         </div>
 
@@ -22,18 +26,35 @@
 
         <div class="direita">
             <button class="btn-carrinho" onclick="toggleCarrinho()">
-                🛒 <span id="contador">0</span>
+
+                <!-- ÍCONE SVG PROFISSIONAL -->
+                <svg class="icon-cart" viewBox="0 0 24 24">
+                    <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 
+                    2-.9 2-2-.9-2-2-2zm10 
+                    0c-1.1 0-2 .9-2 2s.9 2 2 2 
+                    2-.9 2-2-.9-2-2-2zM7.17 
+                    14h9.45c.75 0 1.41-.41 
+                    1.75-1.03l3.58-6.49A1 
+                    1 0 0 0 21 5H5.21l-.94-2H1v2h2l3.6 
+                    7.59-1.35 2.44C4.52 16.37 
+                    5.48 18 7 18h12v-2H7l1.17-2z"/>
+                </svg>
+
+                <span id="contador">0</span>
             </button>
         </div>
+
     </header>
 
     <main>
         <div id="catalogo"></div>
     </main>
 
+    <!-- CARRINHO -->
     <div id="carrinho" class="carrinho-lateral">
+
         <div class="header-carrinho">
-            <h3>O seu Pedido</h3>
+            <h3>Seu Pedido</h3>
 
             <button onclick="toggleCarrinho()" class="btn-fechar">
                 ✕
@@ -52,6 +73,7 @@
         <button class="btn-finalizar" onclick="enviarWhatsApp()">
             Finalizar no WhatsApp
         </button>
+
     </div>
 
     <footer class="rodape">
@@ -59,9 +81,9 @@
             Detalhes que Transformam
         </span>
 
-       <p class="creditos">
-    Desenvolvido por: <strong>Gabrielly Batista</strong>
-</p>
+        <p class="creditos">
+            Desenvolvido por: <strong>Gabrielly Batista</strong>
+        </p>
     </footer>
 
     <script src="script.js"></script>
