@@ -20,11 +20,11 @@ HEADER
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #fff;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 20px;
+    padding: 14px 22px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
@@ -36,7 +36,8 @@ HEADER
 .centro h1 {
     font-size: 16px;
     color: #6b4c3b;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 /* =========================
@@ -46,27 +47,26 @@ BOTÃO CARRINHO
     background: #2e7d32;
     border: none;
     border-radius: 30px;
-    padding: 8px 14px;
+    padding: 10px 16px;
     color: white;
-    display: flex;
-    align-items: center;
-    gap: 6px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-weight: bold;
+    transition: 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-#contador {
-    font-weight: bold;
+.btn-carrinho:hover {
+    transform: scale(1.03);
 }
 
 /* =========================
-CATÁLOGO
+GRID CATÁLOGO
 ========================= */
 #catalogo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-    padding: 20px;
+    gap: 24px;
+    padding: 24px;
 }
 
 /* =========================
@@ -74,64 +74,71 @@ CARD
 ========================= */
 #catalogo > div {
     background: white;
-    border-radius: 18px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
     transition: 0.2s;
+    display: flex;
+    flex-direction: column;
 }
 
 #catalogo > div:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 /* =========================
-IMAGEM (SEM CORTAR)
+IMAGEM PADRONIZADA
 ========================= */
 #catalogo img {
     width: 100%;
-    height: auto;
+    height: 320px;
+    object-fit: contain; /* NÃO corta */
+    background: #f5f5f5;
+    padding: 10px;
     display: block;
 }
 
 /* =========================
-CONTEÚDO
+TEXTOS
 ========================= */
 #catalogo h3 {
-    font-size: 18px;
-    margin: 14px 15px 6px;
+    font-size: 20px;
+    margin: 16px 18px 8px;
+    color: #222;
 }
 
 #catalogo p {
-    font-size: 14px;
+    margin: 0 18px;
     color: #777;
-    margin: 0 15px;
+    font-size: 15px;
 }
 
 #catalogo strong {
     display: block;
-    margin: 10px 15px;
+    margin: 14px 18px;
     color: #2e7d32;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
 }
 
 /* =========================
-BOTÃO
+BOTÃO PRODUTO
 ========================= */
 #catalogo button {
-    width: calc(100% - 30px);
-    margin: 12px 15px 18px;
-    padding: 12px;
-    background: #7a4b35;
-    color: white;
+    margin: auto 18px 20px;
+    width: calc(100% - 36px);
+    padding: 14px;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
+    background: #8a5a44;
+    color: white;
+    font-size: 15px;
     cursor: pointer;
     transition: 0.2s;
 }
 
 #catalogo button:hover {
-    background: #6a3f2d;
+    background: #744734;
 }
 
 /* =========================
@@ -176,30 +183,33 @@ CARRINHO
 
 .header-carrinho {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .btn-fechar {
     border: none;
     background: none;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
 }
 
 .total-container {
     margin-top: 20px;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .btn-finalizar {
     width: 100%;
-    margin-top: 15px;
-    padding: 12px;
+    margin-top: 18px;
+    padding: 14px;
     background: #2e7d32;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     color: white;
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -208,10 +218,21 @@ RODAPÉ
 ========================= */
 .rodape {
     margin-top: 50px;
-    padding: 30px;
+    padding: 35px 20px;
     background: #7a4b35;
     color: white;
     text-align: center;
+}
+
+.slogan {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.creditos {
+    font-size: 15px;
 }
 
 .creditos strong {
@@ -219,14 +240,45 @@ RODAPÉ
 }
 
 /* =========================
-MOBILE (1 CARD POR VEZ)
+MOBILE
 ========================= */
 @media (max-width: 768px) {
+
     #catalogo {
         grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    #catalogo img {
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        padding: 0;
+    }
+
+    .topo {
+        padding: 12px 14px;
+    }
+
+    .logo-container img {
+        height: 38px;
     }
 
     .centro h1 {
         font-size: 14px;
+        text-align: center;
     }
+
+    .btn-carrinho {
+        padding: 10px 14px;
+    }
+
+    #catalogo h3 {
+        font-size: 18px;
+    }
+
+    #catalogo strong {
+        font-size: 18px;
+    }
+
 }
