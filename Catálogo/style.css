@@ -129,7 +129,7 @@ CATÁLOGO
 /* =========================
 CARD
 ========================= */
-.produto{
+.produto-card{
     background:#fff;
 
     border-radius:24px;
@@ -139,13 +139,15 @@ CARD
     box-shadow:
     0 8px 24px rgba(0,0,0,.06);
 
+    transition:.3s ease;
+
     display:flex;
     flex-direction:column;
 
-    transition:.3s ease;
+    height:100%;
 }
 
-.produto:hover{
+.produto-card:hover{
     transform:translateY(-5px);
 
     box-shadow:
@@ -155,10 +157,22 @@ CARD
 /* =========================
 IMAGEM
 ========================= */
-.produto img{
+.img-container{
     width:100%;
-
     height:320px;
+
+    background:#f7f7f7;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.img-container img{
+    width:100%;
+    height:100%;
 
     object-fit:cover;
 
@@ -166,57 +180,71 @@ IMAGEM
 }
 
 /* =========================
+INFO
+========================= */
+.info{
+    display:flex;
+    flex-direction:column;
+
+    flex:1;
+
+    padding:24px;
+}
+
+/* =========================
 TÍTULO
 ========================= */
-.produto h3{
+.info h3{
     font-size:20px;
 
     font-weight:700;
 
-    text-align:center;
-
     color:#222;
 
-    margin-top:20px;
+    text-align:center;
 
-    padding:0 20px;
+    margin-bottom:14px;
+
+    min-height:52px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 /* =========================
 TAMANHO
 ========================= */
-.produto p{
+.tamanho{
     text-align:center;
 
     color:#777;
 
     font-size:16px;
 
-    margin-top:10px;
+    margin-bottom:16px;
 }
 
 /* =========================
 PREÇO
 ========================= */
-.produto strong{
-    display:block;
-
+.preco{
     text-align:center;
 
     color:#2e7d32;
 
-    font-size:28px;
+    font-size:30px;
 
-    margin-top:16px;
+    font-weight:700;
+
+    margin-bottom:24px;
 }
 
 /* =========================
 BOTÃO
 ========================= */
-.produto button{
-    width:calc(100% - 40px);
-
-    margin:24px auto;
+.btn-comprar{
+    width:100%;
 
     padding:16px;
 
@@ -224,7 +252,11 @@ BOTÃO
 
     border-radius:14px;
 
-    background:#8a5a44;
+    background:linear-gradient(
+        135deg,
+        #8a5a44,
+        #6f4633
+    );
 
     color:#fff;
 
@@ -234,13 +266,23 @@ BOTÃO
 
     cursor:pointer;
 
-    transition:.25s;
+    transition:.25s ease;
+
+    margin-top:auto;
 }
 
-.produto button:hover{
-    background:#6f4633;
-
+.btn-comprar:hover{
     transform:translateY(-2px);
+
+    box-shadow:
+    0 10px 20px rgba(111,70,51,.20);
+}
+
+/* =========================
+ANIMAÇÃO BOTÃO
+========================= */
+.btn-comprar.animando{
+    transform:scale(.96);
 }
 
 /* =========================
@@ -357,7 +399,7 @@ TOTAL
 }
 
 /* =========================
-BOTÃO FINALIZAR
+FINALIZAR
 ========================= */
 .btn-finalizar{
     width:100%;
@@ -383,12 +425,44 @@ BOTÃO FINALIZAR
     font-weight:600;
 
     cursor:pointer;
-
-    transition:.25s ease;
 }
 
-.btn-finalizar:hover{
-    transform:translateY(-2px);
+/* =========================
+TOAST
+========================= */
+.toast{
+    position:fixed;
+
+    bottom:28px;
+    left:50%;
+
+    transform:
+    translateX(-50%)
+    translateY(30px);
+
+    background:rgba(30,30,30,.92);
+
+    color:#fff;
+
+    padding:14px 22px;
+
+    border-radius:999px;
+
+    font-size:14px;
+
+    opacity:0;
+
+    transition:.35s ease;
+
+    z-index:9999;
+}
+
+.toast.mostrar{
+    opacity:1;
+
+    transform:
+    translateX(-50%)
+    translateY(0);
 }
 
 /* =========================
@@ -410,16 +484,6 @@ RODAPÉ
     text-align:center;
 }
 
-.slogan{
-    font-size:20px;
-    font-weight:600;
-}
-
-.creditos{
-    margin-top:12px;
-    opacity:.9;
-}
-
 /* =========================
 MOBILE
 ========================= */
@@ -435,7 +499,6 @@ MOBILE
 
     .centro h1{
         font-size:16px;
-        text-align:center;
     }
 
     .texto-carrinho{
@@ -450,26 +513,21 @@ MOBILE
         padding:16px;
     }
 
-    .produto{
-        border-radius:22px;
+    .img-container{
+        height:auto;
     }
 
-    .produto img{
+    .img-container img{
         height:auto;
-
         object-fit:contain;
     }
 
-    .produto h3{
+    .info h3{
         font-size:22px;
     }
 
-    .produto strong{
-        font-size:30px;
-    }
-
-    .produto button{
-        width:calc(100% - 32px);
+    .preco{
+        font-size:34px;
     }
 
     .carrinho-lateral{
