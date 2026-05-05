@@ -1,10 +1,14 @@
-/* IMPORTAR FONTE */
+/* =========================
+   IMPORTAR FONTE
+========================= */
 @font-face {
     font-family: 'MinhaFonte';
     src: url('Fonts/minhas-fontes.ttf') format('truetype');
 }
 
-/* CORES */
+/* =========================
+   CORES
+========================= */
 :root {
     --cor-marrom: #834f3d;
     --cor-verde: #3d7a15;
@@ -13,12 +17,18 @@
     --cor-texto: #333333;
 }
 
+/* =========================
+   RESET
+========================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* =========================
+   BODY
+========================= */
 body {
     font-family: 'MinhaFonte', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--cor-fundo);
@@ -28,13 +38,14 @@ body {
     min-height: 100vh;
 }
 
-/* HEADER */
-
+/* =========================
+   HEADER
+========================= */
 .topo {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 12px 30px;
     background: rgba(255,255,255,0.9);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -51,18 +62,20 @@ body {
     width: 100%;
     height: auto;
     object-fit: contain;
+    mix-blend-mode: multiply;
 }
 
 .centro h1 {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--cor-marrom);
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
 
-/* BOTÃO CARRINHO */
-
+/* =========================
+   BOTÃO CARRINHO
+========================= */
 .btn-carrinho {
     background-color: var(--cor-verde);
     color: var(--cor-branca);
@@ -81,15 +94,17 @@ body {
     transform: translateY(-2px);
 }
 
-/* MAIN */
-
+/* =========================
+   MAIN
+========================= */
 main {
     flex: 1;
     padding: 60px 30px;
 }
 
-/* CATÁLOGO */
-
+/* =========================
+   CATÁLOGO GRID
+========================= */
 #catalogo {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -98,8 +113,9 @@ main {
     margin: 0 auto;
 }
 
-/* CARD */
-
+/* =========================
+   CARD PRODUTO
+========================= */
 .produto-card {
     background: var(--cor-branca);
     border-radius: 16px;
@@ -115,8 +131,9 @@ main {
     transform: translateY(-8px);
 }
 
-/* IMAGEM */
-
+/* =========================
+   IMAGEM
+========================= */
 .img-container {
     width: 100%;
     height: 260px;
@@ -132,10 +149,16 @@ main {
     max-height: 100%;
     object-fit: contain;
     border-radius: 10px;
+    transition: 0.3s;
 }
 
-/* INFO */
+.produto-card:hover img {
+    transform: scale(1.03);
+}
 
+/* =========================
+   INFO
+========================= */
 .info {
     padding: 20px;
     text-align: center;
@@ -163,8 +186,9 @@ main {
     margin-bottom: 15px;
 }
 
-/* BOTÃO */
-
+/* =========================
+   BOTÃO
+========================= */
 .btn-comprar {
     background: linear-gradient(135deg, #834f3d, #a86a4d);
     color: white;
@@ -181,17 +205,24 @@ main {
     background: linear-gradient(135deg, #3d7a15, #4f9b1c);
 }
 
-/* CARRINHO */
+/* ANIMAÇÃO BOTÃO */
+.btn-comprar.animando {
+    transform: scale(1.1);
+}
 
+/* =========================
+   CARRINHO
+========================= */
 .carrinho-lateral {
     position: fixed;
     right: -400px;
     top: 0;
-    width: 350px;
+    width: 360px;
     height: 100%;
-    background: var(--cor-branca);
-    box-shadow: -5px 0 20px rgba(0,0,0,0.1);
-    transition: right 0.3s ease;
+    background: #ffffff;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    z-index: 2000;
+    transition: right 0.4s ease;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -201,36 +232,114 @@ main {
     right: 0;
 }
 
+/* =========================
+   OVERLAY + BLUR
+========================= */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    z-index: 1500;
+}
+
+#overlay.ativo {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* =========================
+   CARRINHO INTERNO
+========================= */
 .header-carrinho {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #eee;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
     padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.btn-fechar {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 #lista-carrinho {
+    list-style: none;
     flex: 1;
     overflow-y: auto;
 }
 
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.total-container {
+    font-size: 18px;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* BOTÃO FINALIZAR */
 .btn-finalizar {
-    background-color: #25d366;
+    background: linear-gradient(135deg, #25d366, #1ebe5d);
     color: white;
-    padding: 15px;
-    border-radius: 10px;
     border: none;
+    padding: 16px;
+    border-radius: 12px;
     margin-top: 15px;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* RODAPÉ PREMIUM */
+.btn-finalizar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
 
+/* =========================
+   TOAST
+========================= */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #333;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 30px;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 9999;
+}
+
+.toast.mostrar {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* =========================
+   RODAPÉ
+========================= */
 .rodape {
     background: linear-gradient(135deg, #834f3d, #5e3528);
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 
 .slogan {
@@ -239,19 +348,10 @@ main {
     margin-bottom: 10px;
 }
 
-/* DESTAQUE DO MEU NOME */
 .creditos {
-    margin-top: 20px;
-    font-size: 15px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    color: #ffffff;
-}
-
-.creditos {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 14px;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 .creditos strong {
@@ -259,14 +359,13 @@ main {
     margin-top: 6px;
     font-size: 18px;
     font-weight: 600;
-    background: linear-gradient(90deg, #ffd700, #ffffff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
 }
 
-/* RESPONSIVO */
-
+/* =========================
+   RESPONSIVO
+========================= */
 @media (max-width: 768px) {
 
     main {
