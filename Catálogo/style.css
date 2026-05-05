@@ -25,93 +25,114 @@ HEADER PREMIUM
     align-items: center;
     justify-content: space-between;
 
-    padding: 16px 28px;
+    padding: 18px 28px;
 
-    background: rgba(255,255,255,0.92);
+    background: rgba(255,255,255,0.94);
+
     backdrop-filter: blur(10px);
 
     border-bottom: 1px solid rgba(0,0,0,0.04);
 
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    box-shadow:
+    0 2px 12px rgba(0,0,0,0.05);
 }
 
+/* =========================
+LOGO
+========================= */
 .logo-container img {
-    height: 52px;
+    height: 72px;
     object-fit: contain;
 }
 
+/* =========================
+TÍTULO
+========================= */
 .centro h1 {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 700;
+
     letter-spacing: 1px;
+
     color: #6f4b3e;
 }
 
 /* =========================
-BOTÃO CARRINHO PREMIUM
+BOTÃO CARRINHO NOVO
 ========================= */
 .btn-carrinho {
-    background: linear-gradient(135deg, #2e7d32, #43a047);
+    background: linear-gradient(
+        135deg,
+        #2e7d32,
+        #43a047
+    );
 
     border: none;
+
     border-radius: 999px;
 
-    width: 54px;
-    height: 54px;
+    padding: 12px 18px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
 
     color: white;
-    font-weight: bold;
-    font-size: 16px;
 
     cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-shadow:
+    0 10px 24px rgba(46,125,50,0.22);
+}
+
+.btn-carrinho:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+    0 14px 28px rgba(46,125,50,0.30);
+}
+
+.btn-carrinho:active {
+    transform: scale(0.97);
+}
+
+.icone-carrinho {
+    font-size: 20px;
+}
+
+.texto-carrinho {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+#contador {
+    background: rgba(255,255,255,0.22);
+
+    min-width: 28px;
+    height: 28px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    border-radius: 999px;
 
-    transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    font-size: 13px;
+    font-weight: bold;
 
-    box-shadow:
-    0 8px 20px rgba(46,125,50,0.28);
-}
-
-/* HOVER */
-.btn-carrinho:hover {
-    transform: translateY(-3px) scale(1.06);
-
-    box-shadow:
-    0 12px 28px rgba(46,125,50,0.38);
-
-    background: linear-gradient(
-        135deg,
-        #388e3c,
-        #4caf50
-    );
-}
-
-/* CLICK */
-.btn-carrinho:active {
-    transform: scale(0.96);
-}
-
-/* CONTADOR */
-#contador {
-    font-size: 15px;
-    font-weight: 700;
+    backdrop-filter: blur(4px);
 }
 
 /* =========================
-CATÁLOGO PREMIUM
+GRID CATÁLOGO
 ========================= */
 #catalogo {
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns:
+    repeat(auto-fit, minmax(340px, 1fr));
 
     gap: 34px;
 
@@ -137,8 +158,6 @@ CARD PREMIUM
 
     display: flex;
     flex-direction: column;
-
-    position: relative;
 }
 
 #catalogo > div:hover {
@@ -149,7 +168,7 @@ CARD PREMIUM
 }
 
 /* =========================
-IMAGEM SEM CORTAR
+IMAGEM
 ========================= */
 #catalogo img {
     width: 100%;
@@ -166,10 +185,10 @@ IMAGEM SEM CORTAR
 }
 
 /* =========================
-CONTEÚDO CARD
+TEXTO CARD
 ========================= */
 #catalogo h3 {
-    font-size: 28px;
+    font-size: 30px;
 
     font-weight: 700;
 
@@ -201,18 +220,18 @@ CONTEÚDO CARD
 }
 
 /* =========================
-BOTÃO PREMIUM
+BOTÃO ADICIONAR
 ========================= */
 #catalogo button {
     margin: auto 24px 24px;
 
     width: calc(100% - 48px);
 
-    padding: 16px;
+    padding: 18px;
 
     border: none;
 
-    border-radius: 16px;
+    border-radius: 18px;
 
     background: linear-gradient(
         135deg,
@@ -223,33 +242,32 @@ BOTÃO PREMIUM
     color: white;
 
     font-size: 16px;
-
     font-weight: 600;
 
     cursor: pointer;
-
-    position: relative;
-
-    overflow: hidden;
 
     transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
     background 0.25s ease;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-/* HOVER PREMIUM */
+/* HOVER */
 #catalogo button:hover {
     transform: translateY(-4px);
 
     background: linear-gradient(
         135deg,
-        #9b654b,
-        #7a4b35
+        #9d6850,
+        #7c4d39
     );
 
     box-shadow:
-    0 12px 26px rgba(111,70,51,0.22);
+    0 12px 26px rgba(111,70,51,0.24);
 }
 
 /* CLICK */
@@ -257,7 +275,7 @@ BOTÃO PREMIUM
     transform: scale(0.97);
 }
 
-/* BRILHO PASSANDO */
+/* BRILHO */
 #catalogo button::before {
     content: "";
 
@@ -295,6 +313,7 @@ OVERLAY
     backdrop-filter: blur(6px);
 
     opacity: 0;
+
     pointer-events: none;
 
     transition: 0.3s;
@@ -308,7 +327,7 @@ OVERLAY
 }
 
 /* =========================
-CARRINHO PREMIUM
+CARRINHO LATERAL
 ========================= */
 .carrinho-lateral {
     position: fixed;
@@ -337,6 +356,9 @@ CARRINHO PREMIUM
     right: 0;
 }
 
+/* =========================
+HEADER CARRINHO
+========================= */
 .header-carrinho {
     display: flex;
     align-items: center;
@@ -350,6 +372,9 @@ CARRINHO PREMIUM
     color: #333;
 }
 
+/* =========================
+BOTÃO FECHAR
+========================= */
 .btn-fechar {
     border: none;
     background: none;
@@ -359,6 +384,9 @@ CARRINHO PREMIUM
     cursor: pointer;
 }
 
+/* =========================
+TOTAL
+========================= */
 .total-container {
     margin-top: 26px;
 
@@ -367,6 +395,9 @@ CARRINHO PREMIUM
     font-weight: bold;
 }
 
+/* =========================
+BOTÃO FINALIZAR
+========================= */
 .btn-finalizar {
     width: 100%;
 
@@ -394,7 +425,7 @@ CARRINHO PREMIUM
 }
 
 /* =========================
-ANIMAÇÃO ADICIONAR
+ANIMAÇÃO
 ========================= */
 .btn-adicionado {
     animation: pulseAdd 0.5s ease;
@@ -416,9 +447,6 @@ ANIMAÇÃO ADICIONAR
 
 }
 
-/* =========================
-ANIMAÇÃO CONTADOR
-========================= */
 .contador-animado {
     animation: bounceCart 0.45s ease;
 }
@@ -485,7 +513,7 @@ TOAST
 }
 
 /* =========================
-RODAPÉ PREMIUM
+RODAPÉ
 ========================= */
 .rodape {
     margin-top: 70px;
@@ -524,7 +552,7 @@ RODAPÉ PREMIUM
 }
 
 /* =========================
-MOBILE PREMIUM
+RESPONSIVO
 ========================= */
 @media (max-width: 768px) {
 
@@ -533,13 +561,16 @@ MOBILE PREMIUM
     }
 
     .logo-container img {
-        height: 42px;
+        height: 54px;
     }
 
     .centro h1 {
-        font-size: 15px;
-
+        font-size: 16px;
         text-align: center;
+    }
+
+    .texto-carrinho {
+        display: none;
     }
 
     #catalogo {
@@ -548,10 +579,6 @@ MOBILE PREMIUM
         gap: 24px;
 
         padding: 18px;
-    }
-
-    #catalogo > div {
-        border-radius: 24px;
     }
 
     #catalogo img {
@@ -563,15 +590,11 @@ MOBILE PREMIUM
     }
 
     #catalogo h3 {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     #catalogo strong {
         font-size: 30px;
-    }
-
-    #catalogo button {
-        padding: 15px;
     }
 
 }
