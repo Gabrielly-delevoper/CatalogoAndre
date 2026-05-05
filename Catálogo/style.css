@@ -88,13 +88,10 @@ BOTÃO CARRINHO
     transform: translateY(-3px);
 }
 
-.icone-carrinho {
-    font-size: 22px;
-}
-
-.texto-carrinho {
-    font-size: 15px;
-    font-weight: 600;
+.icon-cart {
+    width: 22px;
+    height: 22px;
+    fill: white;
 }
 
 #contador {
@@ -124,6 +121,8 @@ CATÁLOGO
     gap: 30px;
 
     padding: 30px;
+
+    align-items: stretch;
 }
 
 /* =========================
@@ -406,47 +405,91 @@ BOTÃO FINALIZAR
 }
 
 /* =========================
-MOBILE
+TOAST
 ========================= */
-@media screen and (max-width: 768px) {
+.toast {
+    position: fixed;
 
-    .topo {
-        padding: 14px 16px;
-    }
+    bottom: 28px;
+    left: 50%;
 
-    .logo-container img {
-        height: 58px;
-    }
+    transform:
+    translateX(-50%)
+    translateY(30px);
 
-    .centro h1 {
-        font-size: 16px;
-    }
+    background: rgba(30,30,30,0.92);
 
-    .texto-carrinho {
-        display: none;
-    }
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 999px;
+
+    font-size: 14px;
+
+    opacity: 0;
+
+    transition: 0.35s ease;
+
+    z-index: 9999;
+}
+
+.toast.mostrar {
+    opacity: 1;
+
+    transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+/* =========================
+RODAPÉ
+========================= */
+.rodape {
+    margin-top: 70px;
+
+    padding: 50px 20px;
+
+    background: linear-gradient(
+        135deg,
+        #7a4b35,
+        #5f3828
+    );
+
+    color: white;
+
+    text-align: center;
+}
+
+/* =========================
+RESPONSIVO
+========================= */
+@media (max-width: 768px) {
 
     #catalogo {
         grid-template-columns: 1fr;
 
-        gap: 22px;
+        gap: 24px;
 
+        padding: 18px;
+    }
+
+    .topo {
         padding: 16px;
+    }
+
+    .logo-container img {
+        height: 60px;
+    }
+
+    .centro h1 {
+        font-size: 18px;
     }
 
     .produto img {
         height: auto;
 
-        padding: 8px;
-    }
-
-    .produto h3 {
-        min-height: auto;
-    }
-
-    .carrinho-lateral {
-        width: 100%;
-        max-width: 100%;
+        object-fit: contain;
     }
 
 }
