@@ -248,17 +248,21 @@ main {
     color: #ffffff;
 }
 
-/* NOME DESTACADO */
-.creditos strong {
-    color: #ffd700; /* dourado premium */
-    font-weight: 700;
+.creditos {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.9;
 }
 
-/* EFEITO DE DESTAQUE */
 .creditos strong {
-    background: linear-gradient(90deg, #ffd700, #fff3b0);
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ffd700, #ffffff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    letter-spacing: 1px;
 }
 
 /* RESPONSIVO */
