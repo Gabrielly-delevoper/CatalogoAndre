@@ -35,7 +35,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 6px 25px;
-    background: var(--cor-branca);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.9);
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     position: sticky;
     top: 0;
@@ -105,10 +106,8 @@ body {
 /* MAIN */
 
 main {
-    flex: 1;
-    padding: 40px 20px;
+    padding: 60px 30px;
 }
-
 /* CATÁLOGO */
 
 #catalogo {
@@ -121,17 +120,20 @@ main {
 
 .produto-card {
     background: var(--cor-branca);
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    transition: transform 0.3s;
-    border: 1px solid #f1f1f1;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: none;
 }
 
 .produto-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px) scale(1.01);
+}
+
+.produto-card:hover img {
+    transform: scale(1.03);
+    transition: 0.4s;
 }
 
 .img-container {
@@ -143,7 +145,8 @@ main {
 .img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    padding: 10px;
 }
 
 .info {
@@ -153,9 +156,9 @@ main {
 }
 
 .info h3 {
-    font-size: 18px;
-    color: var(--cor-marrom);
-    margin-bottom: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
 }
 
 .tamanho {
@@ -167,29 +170,28 @@ main {
 }
 
 .preco {
-    font-size: 20px;
+    font-size: 22px;
     color: var(--cor-verde);
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 15px;
 }
 
 .btn-comprar {
-    background-color: var(--cor-marrom);
-    color: var(--cor-branca);
+    background: linear-gradient(135deg, #834f3d, #a86a4d);
+    color: white;
     border: none;
-    padding: 12px;
+    padding: 14px;
     width: 100%;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s;
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
 .btn-comprar:hover {
-    background-color: var(--cor-verde);
+    background: linear-gradient(135deg, #3d7a15, #4f9b1c);
+    transform: translateY(-2px);
 }
-
 /* CARRINHO */
 
 .carrinho-lateral {
