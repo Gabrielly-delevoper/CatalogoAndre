@@ -1,541 +1,480 @@
 /* =========================
 RESET
 ========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
-    color: #333;
-    overflow-x: hidden;
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f5f5;
+    color:#333;
+    overflow-x:hidden;
 }
 
 /* =========================
 HEADER
 ========================= */
-.topo {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.topo{
+    position:sticky;
+    top:0;
+    z-index:1000;
 
-    background: rgba(255,255,255,0.96);
+    background:rgba(255,255,255,.96);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter:blur(10px);
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    padding: 18px 28px;
+    padding:18px 28px;
 
-    box-shadow:
-    0 2px 12px rgba(0,0,0,0.05);
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
 }
 
 /* =========================
 LOGO
 ========================= */
-.logo-container img {
-    height: 85px;
-    object-fit: contain;
+.logo-container img{
+    height:85px;
+    object-fit:contain;
 }
 
 /* =========================
 TÍTULO
 ========================= */
-.centro h1 {
-    font-size: 22px;
-    color: #6f4b3e;
-    font-weight: 700;
-    letter-spacing: 1px;
+.centro h1{
+    font-size:22px;
+    color:#6f4b3e;
+    font-weight:700;
+    letter-spacing:1px;
 }
 
 /* =========================
 BOTÃO CARRINHO
 ========================= */
-.btn-carrinho {
-    border: none;
+.btn-carrinho{
+    border:none;
 
-    background: linear-gradient(
+    background:linear-gradient(
         135deg,
         #2e7d32,
         #43a047
     );
 
-    color: white;
+    color:#fff;
 
-    border-radius: 999px;
+    border-radius:999px;
 
-    padding: 14px 20px;
+    padding:14px 20px;
 
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    transition: 0.25s ease;
+    transition:.25s ease;
 
     box-shadow:
-    0 10px 24px rgba(46,125,50,0.22);
+    0 10px 24px rgba(46,125,50,.22);
 }
 
-.btn-carrinho:hover {
-    transform: translateY(-3px);
+.btn-carrinho:hover{
+    transform:translateY(-3px);
 }
 
-.icone-carrinho {
-    font-size: 20px;
+.icone-carrinho{
+    font-size:20px;
 }
 
-.texto-carrinho {
-    font-size: 15px;
-    font-weight: 600;
+.texto-carrinho{
+    font-size:15px;
+    font-weight:600;
 }
 
-#contador {
-    min-width: 28px;
-    height: 28px;
+#contador{
+    min-width:28px;
+    height:28px;
 
-    border-radius: 999px;
+    border-radius:999px;
 
-    background: rgba(255,255,255,0.18);
+    background:rgba(255,255,255,.18);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    font-size: 13px;
-    font-weight: bold;
+    font-size:13px;
+    font-weight:bold;
 }
 
 /* =========================
 CATÁLOGO
 ========================= */
-#catalogo {
-    display: grid;
+#catalogo{
+    display:grid;
 
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns:
+    repeat(3,1fr);
 
-    gap: 30px;
+    gap:30px;
 
-    padding: 30px;
+    padding:30px;
 }
 
 /* =========================
 CARD
 ========================= */
-.produto {
-    background: #fff;
+.produto{
+    background:#fff;
 
-    border-radius: 24px;
+    border-radius:24px;
 
-    overflow: hidden;
+    overflow:hidden;
 
     box-shadow:
-    0 8px 24px rgba(0,0,0,0.06);
+    0 8px 24px rgba(0,0,0,.06);
 
-    transition: 0.3s ease;
+    display:flex;
+    flex-direction:column;
 
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: space-between;
-
-    min-height: 100%;
-
-    padding-bottom: 24px;
+    transition:.3s ease;
 }
 
-.produto:hover {
-    transform: translateY(-5px);
+.produto:hover{
+    transform:translateY(-5px);
 
     box-shadow:
-    0 14px 32px rgba(0,0,0,0.10);
+    0 14px 32px rgba(0,0,0,.10);
 }
 
 /* =========================
 IMAGEM
 ========================= */
-.produto img {
-    width: 100%;
+.produto img{
+    width:100%;
 
-    height: 320px;
+    height:320px;
 
-    object-fit: cover;
+    object-fit:cover;
 
-    display: block;
-
-    background: #f5f5f5;
+    display:block;
 }
 
 /* =========================
 TÍTULO
 ========================= */
-.produto h3 {
-    font-size: 18px;
+.produto h3{
+    font-size:20px;
 
-    font-weight: 700;
+    font-weight:700;
 
-    text-align: center;
+    text-align:center;
 
-    color: #222;
+    color:#222;
 
-    margin-top: 24px;
+    margin-top:20px;
 
-    padding: 0 18px;
-
-    min-height: 48px;
+    padding:0 20px;
 }
 
 /* =========================
 TAMANHO
 ========================= */
-.produto p {
-    text-align: center;
+.produto p{
+    text-align:center;
 
-    color: #777;
+    color:#777;
 
-    font-size: 16px;
+    font-size:16px;
 
-    margin-top: 12px;
-
-    padding: 0 18px;
+    margin-top:10px;
 }
 
 /* =========================
 PREÇO
 ========================= */
-.produto strong {
-    display: block;
+.produto strong{
+    display:block;
 
-    text-align: center;
+    text-align:center;
 
-    font-size: 22px;
+    color:#2e7d32;
 
-    color: #2e7d32;
+    font-size:28px;
 
-    margin-top: 18px;
+    margin-top:16px;
 }
 
 /* =========================
 BOTÃO
 ========================= */
-.produto button {
-    width: calc(100% - 48px);
+.produto button{
+    width:calc(100% - 40px);
 
-    margin:
-    24px auto 0;
+    margin:24px auto;
 
-    padding: 15px;
+    padding:16px;
 
-    border: none;
+    border:none;
 
-    border-radius: 14px;
+    border-radius:14px;
 
-    background: linear-gradient(
-        135deg,
-        #8a5a44,
-        #6f4633
-    );
+    background:#8a5a44;
 
-    color: white;
+    color:#fff;
 
-    font-size: 15px;
+    font-size:15px;
 
-    font-weight: 600;
+    font-weight:600;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    transition: 0.25s ease;
+    transition:.25s;
 }
 
-.produto button:hover {
-    transform: translateY(-2px);
+.produto button:hover{
+    background:#6f4633;
 
-    box-shadow:
-    0 10px 20px rgba(111,70,51,0.20);
+    transform:translateY(-2px);
 }
 
 /* =========================
 OVERLAY
 ========================= */
-#overlay {
-    position: fixed;
-    inset: 0;
+#overlay{
+    position:fixed;
+    inset:0;
 
-    background: rgba(0,0,0,0.35);
+    background:rgba(0,0,0,.35);
 
-    backdrop-filter: blur(6px);
+    backdrop-filter:blur(6px);
 
-    opacity: 0;
+    opacity:0;
 
-    pointer-events: none;
+    pointer-events:none;
 
-    transition: 0.3s;
+    transition:.3s;
 
-    z-index: 1500;
+    z-index:1500;
 }
 
-#overlay.ativo {
-    opacity: 1;
-    pointer-events: all;
+#overlay.ativo{
+    opacity:1;
+    pointer-events:all;
 }
 
 /* =========================
 CARRINHO
 ========================= */
-.carrinho-lateral {
-    position: fixed;
+.carrinho-lateral{
+    position:fixed;
 
-    top: 0;
-    right: -100%;
+    top:0;
+    right:-100%;
 
-    width: 90%;
-    max-width: 420px;
+    width:90%;
+    max-width:420px;
 
-    height: 100vh;
+    height:100vh;
 
-    background: white;
+    background:#fff;
 
-    z-index: 2000;
+    z-index:2000;
 
-    transition: 0.4s ease;
+    transition:.4s ease;
 
-    padding: 26px;
+    padding:26px;
 
-    overflow-y: auto;
+    overflow-y:auto;
 
     box-shadow:
-    -10px 0 40px rgba(0,0,0,0.12);
+    -10px 0 40px rgba(0,0,0,.12);
 }
 
-.carrinho-lateral.aberto {
-    right: 0;
+.carrinho-lateral.aberto{
+    right:0;
 }
 
 /* =========================
 HEADER CARRINHO
 ========================= */
-.header-carrinho {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.header-carrinho{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    margin-bottom: 24px;
+    margin-bottom:24px;
 }
 
-.header-carrinho h3 {
-    font-size: 24px;
+.header-carrinho h3{
+    font-size:24px;
 }
 
-.btn-fechar {
-    border: none;
-    background: none;
+.btn-fechar{
+    border:none;
+    background:none;
 
-    font-size: 24px;
+    font-size:24px;
 
-    cursor: pointer;
+    cursor:pointer;
 }
 
 /* =========================
 LISTA CARRINHO
 ========================= */
-#lista-carrinho {
-    list-style: none;
+#lista-carrinho{
+    list-style:none;
 }
 
-.item-carrinho {
-    display: flex;
-    justify-content: space-between;
+.item-carrinho{
+    display:flex;
+    justify-content:space-between;
 
-    gap: 12px;
+    gap:12px;
 
-    margin-bottom: 18px;
+    margin-bottom:18px;
 
-    padding-bottom: 18px;
+    padding-bottom:18px;
 
-    border-bottom: 1px solid #ececec;
+    border-bottom:
+    1px solid #ececec;
 }
 
 /* =========================
 TOTAL
 ========================= */
-.total-container {
-    margin-top: 24px;
+.total-container{
+    margin-top:24px;
 
-    font-size: 22px;
+    font-size:22px;
 
-    font-weight: bold;
+    font-weight:bold;
 }
 
 /* =========================
 BOTÃO FINALIZAR
 ========================= */
-.btn-finalizar {
-    width: 100%;
+.btn-finalizar{
+    width:100%;
 
-    margin-top: 20px;
+    margin-top:20px;
 
-    padding: 16px;
+    padding:16px;
 
-    border: none;
+    border:none;
 
-    border-radius: 16px;
+    border-radius:16px;
 
-    background: linear-gradient(
+    background:linear-gradient(
         135deg,
         #2e7d32,
         #388e3c
     );
 
-    color: white;
+    color:#fff;
 
-    font-size: 16px;
+    font-size:16px;
 
-    font-weight: 600;
+    font-weight:600;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    transition: 0.25s ease;
+    transition:.25s ease;
 }
 
-.btn-finalizar:hover {
-    transform: translateY(-2px);
-}
-
-/* =========================
-TOAST
-========================= */
-.toast {
-    position: fixed;
-
-    bottom: 28px;
-    left: 50%;
-
-    transform:
-    translateX(-50%)
-    translateY(30px);
-
-    background: rgba(30,30,30,0.92);
-
-    color: white;
-
-    padding: 14px 22px;
-
-    border-radius: 999px;
-
-    font-size: 14px;
-
-    opacity: 0;
-
-    transition: 0.35s ease;
-
-    z-index: 9999;
-}
-
-.toast.mostrar {
-    opacity: 1;
-
-    transform:
-    translateX(-50%)
-    translateY(0);
+.btn-finalizar:hover{
+    transform:translateY(-2px);
 }
 
 /* =========================
 RODAPÉ
 ========================= */
-.rodape {
-    margin-top: 70px;
+.rodape{
+    margin-top:70px;
 
-    padding: 50px 20px;
+    padding:50px 20px;
 
-    background: linear-gradient(
+    background:linear-gradient(
         135deg,
         #7a4b35,
         #5f3828
     );
 
-    color: white;
+    color:#fff;
 
-    text-align: center;
+    text-align:center;
 }
 
-.slogan {
-    font-size: 20px;
-
-    font-weight: 600;
+.slogan{
+    font-size:20px;
+    font-weight:600;
 }
 
-.creditos {
-    margin-top: 12px;
-
-    opacity: 0.9;
+.creditos{
+    margin-top:12px;
+    opacity:.9;
 }
 
 /* =========================
 MOBILE
 ========================= */
-@media screen and (max-width: 768px) {
+@media screen and (max-width:768px){
 
-    .topo {
-        padding: 14px 16px;
+    .topo{
+        padding:14px 16px;
     }
 
-    .logo-container img {
-        height: 58px;
+    .logo-container img{
+        height:58px;
     }
 
-    .centro h1 {
-        font-size: 16px;
-
-        text-align: center;
+    .centro h1{
+        font-size:16px;
+        text-align:center;
     }
 
-    .texto-carrinho {
-        display: none;
+    .texto-carrinho{
+        display:none;
     }
 
-    #catalogo {
-        grid-template-columns: 1fr;
+    #catalogo{
+        grid-template-columns:1fr;
 
-        gap: 22px;
+        gap:22px;
 
-        padding: 16px;
+        padding:16px;
     }
 
-    .produto {
-        border-radius: 22px;
+    .produto{
+        border-radius:22px;
     }
 
-    .produto img {
-        height: auto;
+    .produto img{
+        height:auto;
 
-        object-fit: contain;
+        object-fit:contain;
     }
 
-    .produto h3 {
-        min-height: auto;
-
-        font-size: 20px;
+    .produto h3{
+        font-size:22px;
     }
 
-    .produto strong {
-        font-size: 26px;
+    .produto strong{
+        font-size:30px;
     }
 
-    .produto button {
-        width: calc(100% - 32px);
+    .produto button{
+        width:calc(100% - 32px);
     }
 
-    .carrinho-lateral {
-        width: 100%;
-        max-width: 100%;
+    .carrinho-lateral{
+        width:100%;
+        max-width:100%;
     }
 
 }
