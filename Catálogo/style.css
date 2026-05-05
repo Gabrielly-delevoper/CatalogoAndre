@@ -8,7 +8,7 @@ RESET
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     background: #f5f5f5;
     color: #333;
 }
@@ -20,28 +20,30 @@ HEADER
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #fff;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 20px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
 }
 
 .logo-container img {
     height: 45px;
+    object-fit: contain;
 }
 
 .centro h1 {
     font-size: 16px;
     color: #6b4c3b;
+    font-weight: 500;
 }
 
 /* =========================
-CARRINHO
+BOTÃO CARRINHO
 ========================= */
 .btn-carrinho {
-    background: #2e7d32;
+    background: rgba(46,125,50,0.95);
     border: none;
     border-radius: 30px;
     padding: 8px 14px;
@@ -50,6 +52,7 @@ CARRINHO
     align-items: center;
     gap: 6px;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 #contador {
@@ -57,82 +60,80 @@ CARRINHO
 }
 
 /* =========================
-GRID
+GRID PRODUTOS
 ========================= */
 #catalogo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 22px;
     padding: 20px;
-    justify-items: center;
 }
 
 /* =========================
-CARD
+CARD PRODUTO
 ========================= */
-.produto-card {
-    width: 100%;
-    max-width: 420px;
+.produto {
     background: white;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.2s;
+}
+
+.produto:hover {
+    transform: translateY(-3px);
 }
 
 /* =========================
-IMAGEM (SOLUÇÃO DEFINITIVA)
+IMAGEM (SEM CORTAR)
 ========================= */
-.produto-imagem {
+.produto img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* mantém padrão */
-    background: #f3f3f3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-/* ESSA PARTE RESOLVE TUDO */
-.produto-imagem img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* NÃO CORTA */
+    height: auto; /* NÃO corta */
+    display: block;
 }
 
 /* =========================
 INFO
 ========================= */
 .produto-info {
-    padding: 20px;
-    text-align: center;
+    padding: 18px;
 }
 
-.produto-info h3 {
-    font-size: 20px;
+.produto h3 {
+    font-size: 19px;
+    margin-bottom: 6px;
 }
 
-.produto-info span {
+.produto p {
+    font-size: 14px;
     color: #777;
 }
 
-.preco {
+.produto strong {
+    display: block;
     color: #2e7d32;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 20px;
     margin: 10px 0;
 }
 
 /* =========================
 BOTÃO
 ========================= */
-.btn-add {
+.produto button {
     width: 100%;
     background: #7a4b35;
     color: white;
     border: none;
     border-radius: 12px;
     padding: 12px;
+    font-size: 14px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.produto button:hover {
+    background: #6a3f2d;
 }
 
 /* =========================
@@ -141,10 +142,12 @@ OVERLAY
 #overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
     opacity: 0;
     pointer-events: none;
     transition: 0.3s;
+    z-index: 1500;
 }
 
 #overlay.ativo {
@@ -166,36 +169,79 @@ CARRINHO
     z-index: 2000;
     transition: 0.4s;
     padding: 20px;
+    box-shadow: -10px 0 25px rgba(0,0,0,0.1);
 }
 
 .carrinho-lateral.ativo {
     right: 0;
 }
 
+.header-carrinho {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.btn-fechar {
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.total-container {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.btn-finalizar {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    background: #2e7d32;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
 /* =========================
 RODAPÉ
 ========================= */
 .rodape {
-    margin-top: 40px;
+    margin-top: 50px;
     padding: 30px;
     background: #7a4b35;
     color: white;
     text-align: center;
 }
 
+.creditos strong {
+    color: #ffd8c2;
+}
+
 /* =========================
-MOBILE (1 PRODUTO POR VEZ)
+MOBILE (1 PRODUTO GRANDE)
 ========================= */
 @media (max-width: 600px) {
+
     #catalogo {
         grid-template-columns: 1fr;
+        padding: 15px;
     }
 
-    .produto-card {
-        max-width: 95%;
+    .produto {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .produto img {
+        width: 100%;
+        height: auto;
     }
 
     .centro h1 {
         font-size: 14px;
     }
+
 }
