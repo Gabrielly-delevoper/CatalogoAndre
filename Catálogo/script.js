@@ -4,7 +4,7 @@ const numeroWhats = "5521965134957";
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
 /* =========================
-   PRODUTOS (MANTÉM IGUAL)
+   PRODUTOS
 ========================= */
 const produtos = [
     { id: 1, nome: "Essência Carioca", tamanho: "140x45cm", preco: 684.99, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Essência_Carioca_kvbiiq" },
@@ -39,22 +39,35 @@ function salvarCarrinho() {
    RENDERIZAR PRODUTOS
 ========================= */
 function renderizarProdutos() {
+
     const container = document.getElementById("catalogo");
 
     container.innerHTML = produtos.map(produto => `
         <div class="produto-card">
+
             <div class="img-container">
                 <img src="${produto.img}" alt="${produto.nome}">
             </div>
+
             <div class="info">
                 <h3>${produto.nome}</h3>
-                <p class="tamanho">Tamanho: ${produto.tamanho}</p>
-                <p class="preco">R$ ${produto.preco.toFixed(2)}</p>
 
-                <button class="btn-comprar" onclick="adicionar(${produto.id}, this)">
+                <p class="tamanho">
+                    Tamanho: ${produto.tamanho}
+                </p>
+
+                <p class="preco">
+                    R$ ${produto.preco.toFixed(2)}
+                </p>
+
+                <button
+                    class="btn-comprar"
+                    onclick="adicionar(${produto.id}, this)"
+                >
                     Adicionar ao Carrinho
                 </button>
             </div>
+
         </div>
     `).join("");
 }
@@ -65,20 +78,28 @@ function renderizarProdutos() {
 function adicionar(id, botao) {
 
     const produto = produtos.find(p => p.id === id);
+
     const existente = carrinho.find(item => item.id === id);
 
     if (existente) {
         existente.qtd += 1;
     } else {
-        carrinho.push({ ...produto, qtd: 1 });
+        carrinho.push({
+            ...produto,
+            qtd: 1
+        });
     }
 
     salvarCarrinho();
+
     atualizarCarrinho();
 
     // animação botão
     botao.classList.add("animando");
-    setTimeout(() => botao.classList.remove("animando"), 300);
+
+    setTimeout(() => {
+        botao.classList.remove("animando");
+    }, 300);
 
     mostrarToast("Adicionado ao carrinho 🛒");
 }
@@ -89,16 +110,25 @@ function adicionar(id, botao) {
 function mostrarToast(texto) {
 
     const toast = document.createElement("div");
+
     toast.className = "toast";
+
     toast.innerText = texto;
 
     document.body.appendChild(toast);
 
-    setTimeout(() => toast.classList.add("mostrar"), 50);
+    setTimeout(() => {
+        toast.classList.add("mostrar");
+    }, 50);
 
     setTimeout(() => {
+
         toast.classList.remove("mostrar");
-        setTimeout(() => toast.remove(), 300);
+
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+
     }, 2000);
 }
 
@@ -108,65 +138,124 @@ function mostrarToast(texto) {
 function atualizarCarrinho() {
 
     const lista = document.getElementById("lista-carrinho");
+
     const totalEl = document.getElementById("total-valor");
 
-    const totalItens = carrinho.reduce((s, i) => s + i.qtd, 0);
+    const totalItens = carrinho.reduce((soma, item) => {
+        return soma + item.qtd;
+    }, 0);
+
     document.getElementById("contador").innerText = totalItens;
+
+    if (carrinho.length === 0) {
+
+        lista.innerHTML = `
+            <li class="carrinho-vazio">
+                Seu carrinho está vazio 🛒
+            </li>
+        `;
+
+        totalEl.innerText = "0.00";
+
+        return;
+    }
 
     lista.innerHTML = carrinho.map(item => `
         <li class="item-carrinho">
-            <span>${item.nome} (${item.qtd}x)</span>
-            <span>R$ ${(item.preco * item.qtd).toFixed(2)}</span>
+
+            <div>
+                <strong>${item.nome}</strong>
+                <p>${item.qtd}x • ${item.tamanho}</p>
+            </div>
+
+            <span>
+                R$ ${(item.preco * item.qtd).toFixed(2)}
+            </span>
+
         </li>
     `).join("");
 
-    const total = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
+    const total = carrinho.reduce((soma, item) => {
+        return soma + (item.preco * item.qtd);
+    }, 0);
+
     totalEl.innerText = total.toFixed(2);
 }
 
 /* =========================
-   ABRIR/FECHAR CARRINHO
+   ABRIR / FECHAR CARRINHO
 ========================= */
 function toggleCarrinho() {
 
     const carrinhoEl = document.getElementById("carrinho");
+
     const overlay = document.getElementById("overlay");
 
     carrinhoEl.classList.toggle("aberto");
+
     overlay.classList.toggle("ativo");
 }
 
 /* =========================
-   WHATSAPP
+   ENVIAR WHATSAPP
 ========================= */
 function enviarWhatsApp() {
 
     if (carrinho.length === 0) {
+
         alert("Seu carrinho está vazio 🛒");
+
         return;
     }
 
     let msg = "✨ *Pedido - André Batista Decor*\n\n";
 
     carrinho.forEach((item, i) => {
-        msg += `📌 ${i + 1}. ${item.nome}\n`;
+
+        msg += `📌 *${i + 1}. ${item.nome}*\n`;
+
         msg += `📏 ${item.tamanho}\n`;
+
+        msg += `🛒 Quantidade: ${item.qtd}\n`;
+
         msg += `💰 R$ ${(item.preco * item.qtd).toFixed(2)}\n\n`;
     });
 
-    const total = carrinho.reduce((s, i) => s + (i.preco * i.qtd), 0);
+    const total = carrinho.reduce((soma, item) => {
+        return soma + (item.preco * item.qtd);
+    }, 0);
 
     msg += `🧾 *Total: R$ ${total.toFixed(2)}*\n\n`;
+
     msg += "Gostaria de finalizar o pedido 😊";
 
     window.open(
         `https://wa.me/${numeroWhats}?text=${encodeURIComponent(msg)}`,
         "_blank"
     );
+
+    // LIMPAR CARRINHO
+    carrinho = [];
+
+    salvarCarrinho();
+
+    atualizarCarrinho();
+
+    // FECHAR CARRINHO
+    const carrinhoEl = document.getElementById("carrinho");
+
+    const overlay = document.getElementById("overlay");
+
+    carrinhoEl.classList.remove("aberto");
+
+    overlay.classList.remove("ativo");
+
+    mostrarToast("Pedido enviado no WhatsApp ✅");
 }
 
 /* =========================
    INICIAR
 ========================= */
 renderizarProdutos();
+
 atualizarCarrinho();
