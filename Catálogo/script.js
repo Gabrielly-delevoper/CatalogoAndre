@@ -147,6 +147,7 @@ function atualizarCarrinho() {
 
     document.getElementById("contador").innerText = totalItens;
 
+    // CARRINHO VAZIO
     if (carrinho.length === 0) {
 
         lista.innerHTML = `
@@ -213,12 +214,10 @@ function enviarWhatsApp() {
     carrinho.forEach((item, i) => {
 
         msg += `📌 *${i + 1}. ${item.nome}*\n`;
-
         msg += `📏 ${item.tamanho}\n`;
-
         msg += `🛒 Quantidade: ${item.qtd}\n`;
-
         msg += `💰 R$ ${(item.preco * item.qtd).toFixed(2)}\n\n`;
+
     });
 
     const total = carrinho.reduce((soma, item) => {
@@ -226,31 +225,31 @@ function enviarWhatsApp() {
     }, 0);
 
     msg += `🧾 *Total: R$ ${total.toFixed(2)}*\n\n`;
-
     msg += "Gostaria de finalizar o pedido 😊";
 
-    window.open(
-        `https://wa.me/${numeroWhats}?text=${encodeURIComponent(msg)}`,
-        "_blank"
-    );
+    const linkWhats = `https://wa.me/${numeroWhats}?text=${encodeURIComponent(msg)}`;
 
-    // LIMPAR CARRINHO
+    // LIMPA COMPLETAMENTE O CARRINHO
     carrinho = [];
 
-    salvarCarrinho();
+    // APAGA DO LOCAL STORAGE
+    localStorage.removeItem("carrinho");
 
+    // ATUALIZA A INTERFACE
     atualizarCarrinho();
 
-    // FECHAR CARRINHO
-    const carrinhoEl = document.getElementById("carrinho");
+    // FECHA O MENU
+    document.getElementById("carrinho").classList.remove("aberto");
 
-    const overlay = document.getElementById("overlay");
+    document.getElementById("overlay").classList.remove("ativo");
 
-    carrinhoEl.classList.remove("aberto");
-
-    overlay.classList.remove("ativo");
-
+    // TOAST
     mostrarToast("Pedido enviado no WhatsApp ✅");
+
+    // ABRE O WHATSAPP
+    setTimeout(() => {
+        window.open(linkWhats, "_blank");
+    }, 300);
 }
 
 /* =========================
