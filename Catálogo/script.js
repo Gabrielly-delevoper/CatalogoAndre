@@ -3,9 +3,7 @@ const numeroWhats = "5521965134957";
 // carrega carrinho salvo
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-/* =========================
-   PRODUTOS
-========================= */
+/* PRODUTOS */
 const produtos = [
     { id: 1, nome: "Essência Carioca", tamanho: "140x45cm", preco: 684.99, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Essência_Carioca_kvbiiq" },
     { id: 2, nome: "Alma do Rio", tamanho: "55x35cm", preco: 180.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Alma_do_Rio_eurfgj" },
@@ -28,16 +26,12 @@ const produtos = [
     { id: 20, nome: "Essência Luar - Marrom", tamanho: "140x40cm", preco: 570.00, img: "https://res.cloudinary.com/dqvahjwcb/image/upload/f_auto,q_auto/Lunar_Essence_1_vlztpb" }
 ];
 
-/* =========================
-   SALVAR CARRINHO
-========================= */
+/*SALVAR CARRINHO*/
 function salvarCarrinho() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
-/* =========================
-   RENDERIZAR PRODUTOS
-========================= */
+/*RENDERIZAR PRODUTOS*/
 function renderizarProdutos() {
 
     const container = document.getElementById("catalogo");
@@ -46,8 +40,12 @@ function renderizarProdutos() {
         <div class="produto-card">
 
             <div class="img-container">
-                <img src="${produto.img}" alt="${produto.nome}">
-            </div>
+                <img
+                 src="${produto.img}"
+                 alt="Quadro decorativo ${produto.nome}"
+                 loading="lazy"
+               >
+             </div>
 
             <div class="info">
                 <h3>${produto.nome}</h3>
@@ -72,9 +70,7 @@ function renderizarProdutos() {
     `).join("");
 }
 
-/* =========================
-   ADICIONAR PRODUTO
-========================= */
+/*ADICIONAR PRODUTO*/
 function adicionar(id, botao) {
 
     const produto = produtos.find(p => p.id === id);
@@ -104,9 +100,7 @@ function adicionar(id, botao) {
     mostrarToast("Adicionado ao carrinho 🛒");
 }
 
-/* =========================
-   TOAST
-========================= */
+/*TOAST*/
 function mostrarToast(texto) {
 
     const toast = document.createElement("div");
@@ -132,9 +126,7 @@ function mostrarToast(texto) {
     }, 2000);
 }
 
-/* =========================
-   ATUALIZAR CARRINHO
-========================= */
+/*ATUALIZAR CARRINHO*/
 function atualizarCarrinho() {
 
     const lista = document.getElementById("lista-carrinho");
@@ -183,9 +175,7 @@ function atualizarCarrinho() {
     totalEl.innerText = total.toFixed(2);
 }
 
-/* =========================
-   ABRIR / FECHAR CARRINHO
-========================= */
+/*ABRIR / FECHAR CARRINHO*/
 function toggleCarrinho() {
 
     const carrinhoEl = document.getElementById("carrinho");
@@ -197,9 +187,7 @@ function toggleCarrinho() {
     overlay.classList.toggle("ativo");
 }
 
-/* =========================
-   ENVIAR WHATSAPP
-========================= */
+/*ENVIAR WHATSAPP*/
 function enviarWhatsApp() {
 
     if (carrinho.length === 0) {
@@ -252,9 +240,7 @@ function enviarWhatsApp() {
     }, 300);
 }
 
-/* =========================
-   INICIAR
-========================= */
+/*INICIAR*/
 renderizarProdutos();
 
 atualizarCarrinho();
