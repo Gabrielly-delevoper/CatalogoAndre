@@ -798,3 +798,41 @@ MOBILE
 
     line-height:1.8;
 }
+
+.breadcrumb{
+
+    padding:20px 24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    background:white;
+
+    font-size:.95rem;
+}
+
+.breadcrumb a{
+
+    text-decoration:none;
+
+    color:#666;
+
+    transition:.3s;
+}
+
+.breadcrumb a:hover{
+
+    color:#111;
+}
+
+.breadcrumb-atual{
+
+    color:#111;
+
+    font-weight:600;
+}
