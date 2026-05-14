@@ -962,3 +962,79 @@ MOBILE
 
     line-height:1.8;
 }
+
+.footer-premium{
+
+    background:#0f0f0f;
+
+    color:white;
+
+    padding:100px 24px 40px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+
+    gap:50px;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+.footer-col h3,
+.footer-col h4{
+
+    margin-bottom:24px;
+
+    color:white;
+}
+
+.footer-col p{
+
+    color:#bbb;
+
+    line-height:1.8;
+}
+
+.footer-col a{
+
+    display:block;
+
+    margin-bottom:14px;
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.footer-col a:hover{
+
+    color:white;
+}
+
+.footer-bottom{
+
+    margin-top:70px;
+
+    padding-top:30px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    text-align:center;
+
+    color:#888;
+
+    line-height:1.8;
+}
+
+.footer-bottom strong{
+
+    color:white;
+}
