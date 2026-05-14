@@ -605,3 +605,94 @@ MOBILE
 
     opacity:.95;
 }
+
+.colecao-rio{
+
+    padding:100px 24px;
+
+    background:#f8f8f8;
+}
+
+.container-rio{
+
+    max-width:1300px;
+
+    margin:auto;
+}
+
+.colecao-rio h2{
+
+    text-align:center;
+
+    font-size:2.5rem;
+
+    margin-bottom:20px;
+
+    color:#222;
+}
+
+.descricao-rio{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 60px;
+
+    line-height:1.8;
+
+    color:#555;
+
+    font-size:1.05rem;
+}
+
+.grid-rio{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:32px;
+}
+
+.card-rio{
+
+    background:white;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.card-rio:hover{
+
+    transform:translateY(-8px);
+}
+
+.card-rio img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.card-rio h3{
+
+    padding:24px;
+
+    font-size:1.3rem;
+
+    text-align:center;
+
+    color:#222;
+}
