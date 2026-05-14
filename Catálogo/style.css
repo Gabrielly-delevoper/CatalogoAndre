@@ -696,3 +696,55 @@ MOBILE
 
     color:#222;
 }
+.links-internos{
+
+    padding:100px 24px;
+
+    background:white;
+
+    text-align:center;
+}
+
+.links-internos h2{
+
+    font-size:2.3rem;
+
+    margin-bottom:50px;
+
+    color:#222;
+}
+
+.links-grid{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+    justify-content:center;
+}
+
+.links-grid a{
+
+    padding:18px 32px;
+
+    background:#111;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:999px;
+
+    transition:.3s;
+
+    font-weight:600;
+}
+
+.links-grid a:hover{
+
+    transform:translateY(-4px);
+
+    background:#333;
+}
