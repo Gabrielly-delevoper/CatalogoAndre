@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://gabrielly-delevoper.github.io/CatalogoAndre/sitemap.xml
